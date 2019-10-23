@@ -4,12 +4,12 @@
 
 using namespace std;
 
-class Entity
-{
+class Entity {
 	public:
-		Entity();
+		Entity( unsigned int identifier );
 		~Entity();
 		void DrawSelf();
+
 		void Initialize();
 		void Destroy();
 		void Update();
@@ -29,12 +29,11 @@ class Entity
 		void set_x_rotation( float value ), set_y_rotation( float value ), set_z_rotation( float value );
 
 	private:
+		unsigned int id;
 		string name;
 		float x, y, z;
 		float x_origin, y_origin, z_origin;
 		float x_scale, y_scale, z_scale;
 		float x_rotation, y_rotation, z_rotation;
 		float red, green, blue;
-
 };
-

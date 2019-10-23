@@ -2,6 +2,8 @@
 #include <iostream>
 #include <GL/glut.h>
 
+using namespace std;
+
 // ================================================================
 //    THESE METHODS SHOULD BE OVERWRITTED ON AN INHERITED CLASS
 // ================================================================
@@ -18,7 +20,9 @@ void Entity::DrawGUI() {}
 // ==================================================================
 //    THESE METHODS SHOULD NOT BE OVERWRITTED ON AN INHERITED CLASS
 // ==================================================================
-Entity::Entity() {
+Entity::Entity( unsigned int identidier ) {
+	id = identidier;
+
 	name = "";
 	x = 0;
 	y = 0;
@@ -60,6 +64,9 @@ void Entity::DrawSelf() {
 // ==================================================================
 //    THESE ARE THE GETTERS AND SETTERS OF THE ENTITY CLASS
 // ==================================================================
+
+string Entity::get_name() { return name; }
+
 float Entity::get_x() { return x; }
 
 float Entity::get_y() { return y; }
