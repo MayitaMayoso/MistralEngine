@@ -1,0 +1,4 @@
+﻿  Entity.cpp
+  Application.cpp
+Entity.obj : error LNK2001: símbolo externo "public: void __thiscall Entity::Destroy(void)" (?Destroy@Entity@@QAEXXZ) sin resolver
+C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\MistralEngine.exe : fatal error LNK1120: 1 externos sin resolver

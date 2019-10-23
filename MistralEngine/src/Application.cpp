@@ -3,6 +3,9 @@
 #include <ctime>
 #include <ratio>
 #include <chrono>
+#include <Windows.h>
+
+#include "Entity.h"
 
 # define PI 3.14159265358979323846
 
@@ -25,6 +28,8 @@ float zz = 1;
 float angle = 0;
 float dis = 8;
 float spd = 0.4f;
+Entity e;
+
 float wave(float from, float to, float duration, float offset) {
 	float A = float((to - from) * 0.5);
 	float W = float(current_time * 0.001);
@@ -49,38 +54,22 @@ void GeneralInitialize() {
 
 	glClearColor(0, 0, 0, 1);
 
-
 	glMatrixMode(GL_PROJECTION);
 
 	gluPerspective(fov, aspect_ratio, 0.01, 1000);
+
+	glMatrixMode(GL_MODELVIEW);
 }
 
 void GeneralDraw() {
 	glClear(GL_COLOR_BUFFER_BIT);
-	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
 	gluLookAt(dis, dis, dis, 0, 0, 0, 0, 1, 0);
 
 	glPushMatrix();
-		glColor3f(0.5f, 0.5f, 0.5f);
-		glPushMatrix();
-			glScalef(xx, yy, zz);
-			glutWireTeapot(1);
-		glPopMatrix();
 
-		glPushMatrix();
-			glRotatef(angle, 0, 1, 0);
-			glTranslatef(5, 0, 0);
-			glutWireSphere(1, 10, 10);
-		glPopMatrix();
-
-
-		glPushMatrix();
-			glColor3f(1.0f, 1.0f, 0.0f);
-			glRotated(angle, 1, 1, 0);
-			glutWireSphere(50, 20, 20);
-		glPopMatrix();
+		e.DrawSelf();
 
 		glBegin(GL_LINES);
 			float lines_length = 10.0f;
@@ -99,6 +88,7 @@ void GeneralDraw() {
 			glVertex3f(0.0f, 0.0f, 0.0f);
 			glVertex3f(0.0f, 0.0f, lines_length);
 		glEnd();
+
 	glPopMatrix();
 	glutSwapBuffers();
 }
@@ -118,10 +108,58 @@ void GeneralUpdate(int value) {
 void KeyboardDown(unsigned char key, int x_y, int y_t) {
 	switch (key) {
 		case 'w':
-			dis += spd;
+			e.set_x(e.get_x() - 1);
 			break;
 		case 's':
-			dis -= spd;
+			e.set_x(e.get_x() + 1);
+			break;
+		case 'a':
+			e.set_z(e.get_z() + 1);
+			break;
+		case 'd':
+			e.set_z(e.get_z() - 1);
+			break;
+		case 'q':
+			e.set_y(e.get_y() + 1);
+			break;
+		case 'e':
+			e.set_y(e.get_y() - 1);
+			break;
+		case 'u':
+			e.set_x_rotation(e.get_x_rotation() + 3);
+			break;
+		case 'j':
+			e.set_x_rotation(e.get_x_rotation() - 3);
+			break;
+		case 'i':
+			e.set_y_rotation(e.get_y_rotation() + 3);
+			break;
+		case 'k':
+			e.set_y_rotation(e.get_y_rotation() - 3);
+			break;
+		case 'o':
+			e.set_z_rotation(e.get_z_rotation() + 3);
+			break;
+		case 'l':
+			e.set_z_rotation(e.get_z_rotation() - 3);
+			break;
+		case 'r':
+			e.set_x_scale(e.get_x_scale() + 0.2);
+			break;
+		case 'f':
+			e.set_x_scale(e.get_x_scale() - 0.2);
+			break;
+		case 't':
+			e.set_y_scale(e.get_y_scale() + 0.2);
+			break;
+		case 'g':
+			e.set_y_scale(e.get_y_scale() - 0.2);
+			break;
+		case 'y':
+			e.set_z_scale(e.get_z_scale() + 0.2);
+			break;
+		case 'h':
+			e.set_z_scale(e.get_z_scale() - 0.2);
 			break;
 	}
 
