@@ -2,7 +2,9 @@
 #include <GL/glut.h>
 #include <chrono>
 #include <list>
+
 #include "Entity.h"
+#include "GameObjects.h"
 
 using namespace std;
 
@@ -32,8 +34,14 @@ float wave(float from, float to, float duration, float offset) {
 	return float(from + A + A * sin((2 * PI * W) / duration + offset));
 }
 
-Entity * Instantiate() {
-	Entity *e = new Entity(EntitiesCount);
+Entity * Instantiate( int ObjectType ) {
+	Entity* e;
+
+	switch (ObjectType) {
+		case 0:	e = new Axis(EntitiesCount);	break;
+		case 1:	e = new SkyBox(EntitiesCount);	break;
+		default:	e = new Entity(EntitiesCount);	break;
+	}
 	EntitiesList.push_back(e);
 	EntitiesCount++;
 	return e;
@@ -45,29 +53,20 @@ void CalculateTime() {
 	CurrentTime = int(timer.count() * 1000);
 }
 
-void GeneralInitialize() {
+void GeneralDraw() {
 
-	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
-
-	glutInitWindowSize(width, height);
-	glutInitWindowPosition(20, 20);//1920/2 - width/2, 1080 / 2 - height / 2);
-
-	glutCreateWindow("Mistral Engine");
-
-	glClearColor(0, 0, 0, 1);
+	glClearDepth(1.0f);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glViewport(0, 0, width, height);
 
 	glMatrixMode(GL_PROJECTION);
-
-	gluPerspective(fov, aspect_ratio, 0.01, 1000);
-
-	glMatrixMode(GL_MODELVIEW);
-}
-
-void GeneralDraw() {
-	glClear(GL_COLOR_BUFFER_BIT);
 	glLoadIdentity();
 
+	gluPerspective(fov, aspect_ratio, 0.01, 1000);
 	gluLookAt(8, 8, 8, 0, 0, 0, 0, 1, 0);
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
 
 	// Draw all the entities
 	for (Entity* e : EntitiesList) {
@@ -79,27 +78,6 @@ void GeneralDraw() {
 		e->DrawSelf();
 	}
 
-	glPushMatrix();
-
-		glBegin(GL_LINES);
-			float lines_length = 10.0f;
-			// Axis X (Red)
-			glColor3f(1.0f, 0.0f, 0.0f);
-			glVertex3f(0.0f, 0.0f, 0.0f);
-			glVertex3f(lines_length, 0.0f, 0.0f);
-
-			// Axis Y (Green)
-			glColor3f(0.0f, 1.0f, 0.0f);
-			glVertex3f(0.0f, 0.0f, 0.0f);
-			glVertex3f(0.0f, lines_length, 0.0f);
-
-			// Axis Z (Blue)
-			glColor3f(0.0f, 0.0f, 1.0f);
-			glVertex3f(0.0f, 0.0f, 0.0f);
-			glVertex3f(0.0f, 0.0f, lines_length);
-		glEnd();
-
-	glPopMatrix();
 	glutSwapBuffers();
 }
 
@@ -108,7 +86,6 @@ void GeneralUpdate(int value) {
 	for (Entity* e : EntitiesList) {
 		e->Update();
 	}
-
 	CalculateTime();
 	glutTimerFunc(1000 / fps, GeneralUpdate, 0);
 	glutPostRedisplay();
@@ -119,17 +96,27 @@ void KeyboardDown(unsigned char key, int x_y, int y_t) {
 
 int main(int argc, char * args[]) {
 
-	for (int i = 0; i < 10; i++) {
-		Entity *e = Instantiate();
-		e->set_z(float(i));
-	}
-
-
-
+	// Initializing
 	glutInit(&argc, args);
 
-	GeneralInitialize();
+	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GL_DEPTH_BUFFER_BIT);
 
+	glutInitWindowSize(width, height);
+	glutInitWindowPosition(1920/2 - width/2, 1080 / 2 - height / 2);
+
+	glutCreateWindow("Mistral Engine");
+
+	glEnable(GL_DEPTH_TEST);
+	glDepthMask(GL_TRUE);
+	glDepthFunc(GL_LESS);
+	glDepthRange(0.0f, 1.0f);
+
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+
+	Instantiate(0);
+	Instantiate(1);
+
+	// Setting the loop functions
 	glutDisplayFunc(GeneralDraw);
 
 	glutTimerFunc(int(1000/fps), GeneralUpdate, 0);

@@ -4,19 +4,6 @@
 
 using namespace std;
 
-// ================================================================
-//    THESE METHODS SHOULD BE OVERWRITTED ON AN INHERITED CLASS
-// ================================================================
-void Entity::Initialize() {}
-
-void Entity::Destroy() {}
-
-void Entity::Update() {}
-
-void Entity::Draw() {}
-
-void Entity::DrawGUI() {}
-
 // ==================================================================
 //    THESE METHODS SHOULD NOT BE OVERWRITTED ON AN INHERITED CLASS
 // ==================================================================
@@ -39,12 +26,6 @@ Entity::Entity( unsigned int identidier ) {
 	red = 1;
 	green = 1;
 	blue = 1;
-
-	Initialize();
-}
-
-Entity::~Entity() {
-	Destroy();
 }
 
 void Entity::DrawSelf() {
@@ -56,7 +37,6 @@ void Entity::DrawSelf() {
 		glRotatef(y_rotation, 0, 1, 0);
 		glRotatef(z_rotation, 0, 0, 1);
 		glScalef(x_scale, y_scale, z_scale);
-		glutWireTeapot(1);
 	glPopMatrix();
 }
 
@@ -91,6 +71,12 @@ float Entity::get_y_rotation() { return y_rotation; }
 
 float Entity::get_z_rotation() { return z_rotation; }
 
+float Entity::get_red() { return red; }
+
+float Entity::get_green() { return green; }
+
+float Entity::get_blue() { return blue; }
+
 void Entity::set_name(string value) { name = value; }
 
 void Entity::set_x( float value ) { x = value; }
@@ -99,20 +85,26 @@ void Entity::set_y( float value ) { y = value; }
 
 void Entity::set_z( float value) { z = value; }
 
-void Entity::set_x_origin( float value) { x_origin = value; }
+void Entity::set_x_origin( float value ) { x_origin = value; }
 
-void Entity::set_y_origin( float value) { y_origin = value; }
+void Entity::set_y_origin( float value ) { y_origin = value; }
 
-void Entity::set_z_origin( float value) { z_origin = value; }
+void Entity::set_z_origin( float value ) { z_origin = value; }
 
-void Entity::set_x_scale( float value) { x_scale = value; }
+void Entity::set_x_scale( float value ) { x_scale = value; }
 
-void Entity::set_y_scale( float value) { y_scale = value; }
+void Entity::set_y_scale( float value ) { y_scale = value; }
 
-void Entity::set_z_scale( float value) { z_scale = value; }
+void Entity::set_z_scale( float value ) { z_scale = value; }
 
-void Entity::set_x_rotation( float value) { x_rotation = value; }
+void Entity::set_x_rotation( float value ) { x_rotation = value; }
 
-void Entity::set_y_rotation( float value) { y_rotation = value; }
+void Entity::set_y_rotation( float value ) { y_rotation = value; }
 
-void Entity::set_z_rotation( float value) { z_rotation = value; }
+void Entity::set_z_rotation( float value ) { z_rotation = value; }
+
+void Entity::set_red( float value ) { red = value; }
+
+void Entity::set_green( float value ) { green = value; }
+
+void Entity::set_blue( float value ) { blue = value; }

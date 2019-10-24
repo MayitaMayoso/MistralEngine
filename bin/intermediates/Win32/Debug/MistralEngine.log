@@ -1,3 +1,4 @@
-﻿  Entity.cpp
-C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\Entity.cpp(14,33): warning C4305: '+=': truncamiento de 'double' a 'float'
+﻿  Application.cpp
+  Entity.cpp
+  Generating Code...
   MistralEngine.vcxproj -> C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Debug\MistralEngine.exe
