@@ -20,11 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Entity.cpp" />
-    <ClCompile Include="src\Application.cpp" />
+    <ClCompile Include="src\MistralEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Entity.h" />
     <ClInclude Include="src\GameObjects.h" />
+    <ClInclude Include="src\MistralEngine.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

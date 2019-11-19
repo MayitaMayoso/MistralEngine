@@ -1,40 +1,35 @@
-#include <iostream>
-#include <GL/glut.h>
-#include <chrono>
-#include <list>
-
-#include "Entity.h"
-#include "GameObjects.h"
+#include "MistralEngine.h"
 
 using namespace std;
 
-# define PI 3.14159265358979323846
+MistralEngine* MistralEngine::self = 0;
 
-// VIEW VARIABLES
-int width = 1280;
-int height = 720;
-float aspect_ratio = float(width) / float(height);
-int fov = 60;
-int fps = 60;
+MistralEngine::MistralEngine() {
+	// ------------- INITIALIZING THE ENGINE VARIABLES ---------------
 
-// TIMER VARIABLES
-chrono::high_resolution_clock::time_point t0 = chrono::high_resolution_clock::now();
-chrono::high_resolution_clock::time_point t1 = chrono::high_resolution_clock::now();
-chrono::duration<float> timer = chrono::duration_cast<chrono::duration<float>>(t1 - t0);
-int CurrentTime = int(timer.count()*1000);
+	// VIEW VARIABLES
+	width = 1280;
+	height = 720;
+	AspectRatio = float(width) / float(height);
+	fov = 60;
+	fps = 60;
 
-// INSTANCES VARIABLES
-unsigned int EntitiesCount = 0;
-list<Entity*> EntitiesList;
+	// TIMER VARIABLES
+	t0 = chrono::high_resolution_clock::now();
+	CurrentTime = 0;
 
-float wave(float from, float to, float duration, float offset) {
+	// INSTANCES VARIABLES
+	EntitiesCount = 0;
+}
+
+float MistralEngine::wave(float from, float to, float duration, float offset) {
 	float A = float((to - from) * 0.5);
 	float W = float(CurrentTime * 0.001);
 
 	return float(from + A + A * sin((2 * PI * W) / duration + offset));
 }
 
-Entity * Instantiate( int ObjectType ) {
+Entity * MistralEngine::Instantiate( int ObjectType ) {
 	Entity* e;
 
 	switch (ObjectType) {
@@ -47,13 +42,13 @@ Entity * Instantiate( int ObjectType ) {
 	return e;
 }
 
-void CalculateTime() {
-	t1 = chrono::high_resolution_clock::now();
-	timer = chrono::duration_cast<chrono::duration<float>>(t1 - t0);
+void MistralEngine::CalculateTime() {
+	chrono::high_resolution_clock::time_point t1 = chrono::high_resolution_clock::now();
+	chrono::duration<float> timer = chrono::duration_cast<chrono::duration<float>>(t1 - t0);
 	CurrentTime = int(timer.count() * 1000);
 }
 
-void GeneralDraw() {
+void MistralEngine::GeneralDraw() {
 
 	glClearDepth(1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -62,7 +57,7 @@ void GeneralDraw() {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	gluPerspective(fov, aspect_ratio, 0.01, 1000);
+	gluPerspective(fov, AspectRatio, 0.01, 1000);
 	gluLookAt(8, 8, 8, 0, 0, 0, 0, 1, 0);
 
 	glMatrixMode(GL_MODELVIEW);
@@ -70,32 +65,29 @@ void GeneralDraw() {
 
 	// Draw all the entities
 	for (Entity* e : EntitiesList) {
-		e->Draw();
+		e->DrawSelf();
 	}
 
 	// Draw all the entities
 	for (Entity* e : EntitiesList) {
-		e->DrawSelf();
+		e->Draw();
 	}
 
 	glutSwapBuffers();
 }
-
-void GeneralUpdate(int value) {
+void MistralEngine::GeneralUpdate(int value) {
 	// Draw all the entities
 	for (Entity* e : EntitiesList) {
 		e->Update();
 	}
 	CalculateTime();
-	glutTimerFunc(1000 / fps, GeneralUpdate, 0);
+	glutTimerFunc(1000 / fps, UpdateCallback, 0);
 	glutPostRedisplay();
 }
 
-void KeyboardDown(unsigned char key, int x_y, int y_t) {
-}
 
-int main(int argc, char * args[]) {
-
+int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
+	setSelf(s);
 	// Initializing
 	glutInit(&argc, args);
 
@@ -113,15 +105,15 @@ int main(int argc, char * args[]) {
 
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
+	
+
 	Instantiate(0);
 	Instantiate(1);
 
 	// Setting the loop functions
-	glutDisplayFunc(GeneralDraw);
+	glutDisplayFunc(DrawCallback);
 
-	glutTimerFunc(int(1000/fps), GeneralUpdate, 0);
-
-	glutKeyboardFunc(KeyboardDown);
+	glutTimerFunc(int(1000/fps), UpdateCallback, 0);
 
 	glutMainLoop();
 
