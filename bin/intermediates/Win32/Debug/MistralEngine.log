@@ -1,2 +1,5 @@
-﻿  MistralEngine.cpp
+﻿  Entity.cpp
+  GameObjects.cpp
+  MistralEngine.cpp
+  Generating Code...
   MistralEngine.vcxproj -> C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Debug\MistralEngine.exe

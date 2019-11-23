@@ -5,9 +5,11 @@
 
 using namespace std;
 
+class MistralEngine;
+
 class Entity {
 	public:
-		Entity( unsigned int identifier ); // Class constructor. Initializes all the Entities built-in variables.
+		Entity( unsigned int identifier, MistralEngine* g ); // Class constructor. Initializes all the Entities built-in variables.
 		void DrawSelf(); // Draws the Entitys body. Position, scale and rotation affects how the bodys is drawn.
 
 		virtual void Update() {}; // This method is called in the Timer Function of the main loop.
@@ -16,6 +18,7 @@ class Entity {
 
 		// ------------------- Getters and Setters -----------------------
 		string get_name();
+		unsigned int get_id();
 		float get_x(), get_y(), get_z();
 		float get_x_origin(), get_y_origin(), get_z_origin();
 		float get_x_scale(), get_y_scale(), get_z_scale();
@@ -37,4 +40,6 @@ class Entity {
 		float x_scale, y_scale, z_scale;
 		float x_rotation, y_rotation, z_rotation;
 		float red, green, blue;
+
+		MistralEngine* game;
 };

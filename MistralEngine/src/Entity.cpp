@@ -1,13 +1,12 @@
+#include "MistralEngine.h"
 #include "Entity.h"
-#include <iostream>
-#include <GL/glut.h>
 
 using namespace std;
 
 // ==================================================================
 //    THESE METHODS SHOULD NOT BE OVERWRITTED ON AN INHERITED CLASS
 // ==================================================================
-Entity::Entity( unsigned int identidier ) {
+Entity::Entity( unsigned int identidier, MistralEngine* g) {
 	id = identidier;
 
 	name = "";
@@ -26,6 +25,8 @@ Entity::Entity( unsigned int identidier ) {
 	red = 1;
 	green = 1;
 	blue = 1;
+
+	game = g;
 }
 
 void Entity::DrawSelf() {
@@ -38,6 +39,12 @@ void Entity::DrawSelf() {
 		glRotatef(z_rotation, 0, 0, 1);
 		glScalef(x_scale, y_scale, z_scale);
 	glPopMatrix();
+
+	for (Entity* e : game->EntitiesList) {
+		cout << e->get_id();
+	}
+
+	cout << game->CurrentTime;
 }
 
 
@@ -46,6 +53,8 @@ void Entity::DrawSelf() {
 // ==================================================================
 
 string Entity::get_name() { return name; }
+
+unsigned int Entity::get_id() { return id; }
 
 float Entity::get_x() { return x; }
 

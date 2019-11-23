@@ -3,10 +3,11 @@
 #include <chrono>
 #include <list>
 
-#include "Entity.h"
-#include "GameObjects.h"
-
 # define PI 3.14159265358979323846
+
+using namespace std;
+
+class Entity;
 
 class MistralEngine {
 public:
@@ -20,15 +21,6 @@ public:
 
 	static void setSelf(MistralEngine* s) { self = s;  };
 
-private:
-	void CalculateTime();
-
-	virtual void GeneralUpdate(int value);
-	virtual void GeneralDraw();
-
-	static void UpdateCallback(int value) { self->GeneralUpdate(value); };
-	static void DrawCallback() { self->GeneralDraw(); };
-
 	int width, height, fov, fps;
 	float AspectRatio;
 
@@ -37,10 +29,13 @@ private:
 
 	unsigned int EntitiesCount;
 	list<Entity*> EntitiesList;
+
+private:
+	void CalculateTime();
+
+	virtual void GeneralUpdate(int value);
+	virtual void GeneralDraw();
+
+	static void UpdateCallback(int value) { self->GeneralUpdate(value); };
+	static void DrawCallback() { self->GeneralDraw(); };
 };
-
-int main(int argc, char* args[]) {
-	MistralEngine *game = new MistralEngine();
-
-	game->Run(argc, args, game);
-}

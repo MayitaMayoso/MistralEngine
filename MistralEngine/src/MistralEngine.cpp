@@ -1,3 +1,5 @@
+#include "Entity.h"
+#include "GameObjects.h"
 #include "MistralEngine.h"
 
 using namespace std;
@@ -33,9 +35,9 @@ Entity * MistralEngine::Instantiate( int ObjectType ) {
 	Entity* e;
 
 	switch (ObjectType) {
-		case 0:	e = new Axis(EntitiesCount);	break;
-		case 1:	e = new SkyBox(EntitiesCount);	break;
-		default:	e = new Entity(EntitiesCount);	break;
+		case 0:	e = new Axis(EntitiesCount, self);	break;
+		case 1:	e = new SkyBox(EntitiesCount, self);	break;
+		default:	e = new Entity(EntitiesCount, self);	break;
 	}
 	EntitiesList.push_back(e);
 	EntitiesCount++;
@@ -118,4 +120,10 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	glutMainLoop();
 
 	return 0;
+}
+
+int main(int argc, char* args[]) {
+	MistralEngine* game = new MistralEngine();
+
+	game->Run(argc, args, game);
 }
