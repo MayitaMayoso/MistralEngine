@@ -1,4 +1,9 @@
+#ifndef GAME_OBJECTS_H 
+#define GAME_OBJECTS_H 
+
 #include <iostream>
+
+#include <GL/glew.h>
 #include <GL/glut.h>
 
 #include "Entity.h"
@@ -74,3 +79,4 @@ private:
 
 	int starsPos[10000][3];
 };
+#endif

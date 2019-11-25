@@ -1,8 +1,22 @@
+#ifndef MISTRAL_ENGINE_H 
+#define MISTRAL_ENGINE_H 
+
 #include <iostream>
-#include <GL/glut.h>
 #include <chrono>
 #include <list>
 
+#include <GL/glew.h>
+#include <GL/glut.h>
+
+#include <iostream>
+#include <stdlib.h>
+#include <string>
+#include <errno.h>
+#include <stdio.h>
+#include <glm.hpp>
+#include <iostream>
+
+#include "vector"
 # define PI 3.14159265358979323846
 
 using namespace std;
@@ -39,3 +53,4 @@ private:
 	static void UpdateCallback(int value) { self->GeneralUpdate(value); };
 	static void DrawCallback() { self->GeneralDraw(); };
 };
+#endif

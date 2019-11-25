@@ -1,6 +1,25 @@
-#include "Entity.h"
+#define GLEW_STATIC
+
 #include "GameObjects.h"
 #include "MistralEngine.h"
+
+#include <GL/glew.h>
+#include <GL/glut.h>
+
+#include <iostream>
+#include <stdlib.h>
+#include <string>
+#include <errno.h>
+#include <stdio.h>
+#include <glm.hpp>
+
+#include <iostream>
+
+
+#include "vector"
+
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
 
 using namespace std;
 
@@ -108,15 +127,27 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 
 	glutCreateWindow("Mistral Engine");
 
+	GLenum glewerror = glewInit();
+	
+
+	if (glewerror != GLEW_OK)
+	{
+		cerr << "GLEW initilization error: " << glewGetErrorString(glewerror) << endl;
+		return 1;
+	}
+
 	glEnable(GL_DEPTH_TEST);
 	glDepthMask(GL_TRUE);
 	glDepthFunc(GL_LESS);
 	glDepthRange(0.0f, 1.0f);
 
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	glClearColor(0.0f, 0.5f, 0.2f, 0.0f);
 
 	glLineWidth(2);	
 
+	Instantiate(0);
+
+	/*
 	Instantiate(1);
 	Entity* ship = Instantiate(3);
 	Entity* cam = Instantiate(2);
@@ -127,6 +158,7 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	cam->set_z(dis);
 	Instantiate(4);
 	Instantiate(5);
+	*/
 
 	// Setting the loop functions
 	glutDisplayFunc(DrawCallback);

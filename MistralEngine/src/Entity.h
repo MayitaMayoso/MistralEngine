@@ -1,5 +1,10 @@
+#ifndef ENTITY_H 
+#define ENTITY_H 
+
 #include <iostream>
 #include <string>
+#include "Model.h"
+#include "Program.h"
 
 #pragma once
 
@@ -20,30 +25,34 @@ class Entity {
 		// ------------------- Getters and Setters -----------------------
 		string get_name();
 		unsigned int get_id();
-		double get_x(), get_y(), get_z();
-		double get_x_origin(), get_y_origin(), get_z_origin();
-		double get_x_scale(), get_y_scale(), get_z_scale();
-		double get_x_angle(), get_y_angle(), get_z_angle();
-		double get_red(), get_green(), get_blue();
+		float get_x(), get_y(), get_z();
+		float get_x_origin(), get_y_origin(), get_z_origin();
+		float get_x_scale(), get_y_scale(), get_z_scale();
+		float get_x_angle(), get_y_angle(), get_z_angle();
+		float get_red(), get_green(), get_blue();
 
 		void set_name( string value );
-		void set_x( double value ), set_y( double value ), set_z( double value );
-		void set_x_origin( double value ), set_y_origin( double value ), set_z_origin( double value );
-		void set_x_scale( double value ), set_y_scale( double value ), set_z_scale( double value );
-		void set_x_angle( double value ), set_y_angle( double value ), set_z_angle( double value );
-		void set_red( double value), set_green( double value), set_blue( double value);
+		void set_x( float value ), set_y( float value ), set_z( float value );
+		void set_x_origin( float value ), set_y_origin( float value ), set_z_origin( float value );
+		void set_x_scale( float value ), set_y_scale( float value ), set_z_scale( float value );
+		void set_x_angle( float value ), set_y_angle( float value ), set_z_angle( float value );
+		void set_red( float value), set_green( float value), set_blue( float value);
 		void set_target( Entity* t );
 		
 
 	protected:
 		unsigned int id;
 		string name;
-		double x, y, z;
-		double x_origin, y_origin, z_origin;
-		double x_scale, y_scale, z_scale;
-		double x_angle, y_angle, z_angle;
-		double red, green, blue;
+		float x, y, z;
+		float x_origin, y_origin, z_origin;
+		float x_scale, y_scale, z_scale;
+		float x_angle, y_angle, z_angle;
+		float red, green, blue;
+
+		Model model;
+		Program program;
 
 		MistralEngine* game;
 		Entity* target;
 };
+#endif
