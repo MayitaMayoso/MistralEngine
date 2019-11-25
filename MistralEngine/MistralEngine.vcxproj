@@ -22,11 +22,13 @@
     <ClCompile Include="src\Entity.cpp" />
     <ClCompile Include="src\GameObjects.cpp" />
     <ClCompile Include="src\MistralEngine.cpp" />
+    <ClCompile Include="src\Scenario.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Entity.h" />
     <ClInclude Include="src\GameObjects.h" />
     <ClInclude Include="src\MistralEngine.h" />
+    <ClInclude Include="src\Scenario.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

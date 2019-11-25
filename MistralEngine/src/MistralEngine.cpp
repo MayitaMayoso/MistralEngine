@@ -37,6 +37,10 @@ Entity * MistralEngine::Instantiate( int ObjectType ) {
 	switch (ObjectType) {
 		case 0:	e = new Axis(EntitiesCount, self);	break;
 		case 1:	e = new SkyBox(EntitiesCount, self);	break;
+		case 2:	e = new Camera(EntitiesCount, self);	break;
+		case 3:	e = new SpaceShip(EntitiesCount, self);	break;
+		case 4:	e = new Planet(EntitiesCount, self);	break;
+		case 5:	e = new Stars(EntitiesCount, self);	break;
 		default:	e = new Entity(EntitiesCount, self);	break;
 	}
 	EntitiesList.push_back(e);
@@ -60,7 +64,11 @@ void MistralEngine::GeneralDraw() {
 	glLoadIdentity();
 
 	gluPerspective(fov, AspectRatio, 0.01, 1000);
-	gluLookAt(8, 8, 8, 0, 0, 0, 0, 1, 0);
+	
+	// Camera Event
+	for (Entity* e : EntitiesList) {
+		e->CameraUpdate();
+	}
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
@@ -107,10 +115,18 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
-	
+	glLineWidth(2);	
 
-	Instantiate(0);
 	Instantiate(1);
+	Entity* ship = Instantiate(3);
+	Entity* cam = Instantiate(2);
+	cam->set_target(ship);
+	int dis = 20;
+	cam->set_x(dis);
+	cam->set_y(dis);
+	cam->set_z(dis);
+	Instantiate(4);
+	Instantiate(5);
 
 	// Setting the loop functions
 	glutDisplayFunc(DrawCallback);

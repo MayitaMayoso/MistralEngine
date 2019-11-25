@@ -1,5 +1,51 @@
 ﻿  Entity.cpp
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\Entity.cpp(34,25): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\Entity.cpp(34,18): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\Entity.cpp(34,13): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\Entity.cpp(35,36): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\Entity.cpp(35,26): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\Entity.cpp(35,16): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\Entity.cpp(36,22): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\Entity.cpp(36,19): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\Entity.cpp(36,16): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\Entity.cpp(37,13): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\Entity.cpp(38,13): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\Entity.cpp(39,13): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\Entity.cpp(40,30): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\Entity.cpp(40,21): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
   GameObjects.cpp
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\Entity.cpp(40,12): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(72,24): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(72,17): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(72,12): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(73,35): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(73,25): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(73,15): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(74,21): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(74,18): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(74,15): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(75,12): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(76,12): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(77,12): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(78,29): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(78,20): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(78,11): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(92,24): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(92,17): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(92,12): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(93,35): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(93,25): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(93,15): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(94,21): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(94,18): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(94,15): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(95,12): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(96,12): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(97,12): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(98,29): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(98,20): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
   MistralEngine.cpp
+  Scenario.cpp
   Generating Code...
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(98,11): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
   MistralEngine.vcxproj -> C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Debug\MistralEngine.exe

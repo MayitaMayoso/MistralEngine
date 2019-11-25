@@ -1,4 +1,7 @@
-﻿  Entity.cpp
-  Application.cpp
-Entity.obj : error LNK2001: símbolo externo "public: void __thiscall Entity::Destroy(void)" (?Destroy@Entity@@QAEXXZ) sin resolver
-C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\MistralEngine.exe : fatal error LNK1120: 1 externos sin resolver
+﻿  MistralEngine.cpp
+  Generating code
+  3 of 178 functions ( 1.7%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  MistralEngine.vcxproj -> C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\MistralEngine.exe
