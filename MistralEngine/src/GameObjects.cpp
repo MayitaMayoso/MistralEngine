@@ -57,9 +57,9 @@ void SpaceShip::Update() {
 	y_rot += spd;
 	z_rot += spd*0.5;
 
-	x = radius * sin(y_rot);
-	z = radius * cos(y_rot);
-	y = radius * sin(z_rot);
+	x = float(radius * sin(y_rot));
+	z = float(radius * cos(y_rot));
+	y = float(radius * sin(z_rot));
 
 	z_angle += 2;
 	y_angle += 2;

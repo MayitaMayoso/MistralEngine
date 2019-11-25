@@ -28,7 +28,6 @@ public:
 	MistralEngine();
 
 	int Run(int argc, char* args[], MistralEngine* s);
-	Entity* Instantiate(int ObjectType);
 	float wave(float from, float to, float duration, float offset);
 
 	static MistralEngine* self;
@@ -41,7 +40,7 @@ public:
 	chrono::high_resolution_clock::time_point t0;
 	int CurrentTime;
 
-	unsigned int EntitiesCount;
+	unsigned int EntitiesCount();
 	list<Entity*> EntitiesList;
 
 private:

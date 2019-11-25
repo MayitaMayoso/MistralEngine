@@ -32,15 +32,16 @@ MistralEngine::MistralEngine() {
 	width = 1280;
 	height = 720;
 	AspectRatio = float(width) / float(height);
-	fov = 60;
+	fov = 50;
 	fps = 60;
 
 	// TIMER VARIABLES
 	t0 = chrono::high_resolution_clock::now();
 	CurrentTime = 0;
+}
 
-	// INSTANCES VARIABLES
-	EntitiesCount = 0;
+unsigned int MistralEngine::EntitiesCount() {
+	return EntitiesList.size();
 }
 
 float MistralEngine::wave(float from, float to, float duration, float offset) {
@@ -48,23 +49,6 @@ float MistralEngine::wave(float from, float to, float duration, float offset) {
 	float W = float(CurrentTime * 0.001);
 
 	return float(from + A + A * sin((2 * PI * W) / duration + offset));
-}
-
-Entity * MistralEngine::Instantiate( int ObjectType ) {
-	Entity* e;
-
-	switch (ObjectType) {
-		case 0:	e = new Axis(EntitiesCount, self);	break;
-		case 1:	e = new SkyBox(EntitiesCount, self);	break;
-		case 2:	e = new Camera(EntitiesCount, self);	break;
-		case 3:	e = new SpaceShip(EntitiesCount, self);	break;
-		case 4:	e = new Planet(EntitiesCount, self);	break;
-		case 5:	e = new Stars(EntitiesCount, self);	break;
-		default:	e = new Entity(EntitiesCount, self);	break;
-	}
-	EntitiesList.push_back(e);
-	EntitiesCount++;
-	return e;
 }
 
 void MistralEngine::CalculateTime() {
@@ -96,10 +80,11 @@ void MistralEngine::GeneralDraw() {
 	for (Entity* e : EntitiesList) {
 		e->DrawSelf();
 	}
-
+	
 	// Draw all the entities
 	for (Entity* e : EntitiesList) {
 		e->Draw();
+		//cout << "Drawing: " << e->get_id() << endl;
 	}
 
 	glutSwapBuffers();
@@ -116,7 +101,6 @@ void MistralEngine::GeneralUpdate(int value) {
 
 
 int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
-	setSelf(s);
 	// Initializing
 	glutInit(&argc, args);
 
@@ -141,24 +125,16 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	glDepthFunc(GL_LESS);
 	glDepthRange(0.0f, 1.0f);
 
-	glClearColor(0.0f, 0.5f, 0.2f, 0.0f);
+	glClearColor(.7f, .7f, .7f, 1.0f);
 
-	glLineWidth(2);	
+	glLineWidth(2);
 
-	Instantiate(0);
+	setSelf(s);
+	
+	for (int i = 0; i < 10; i++) {
+		new Eye(self);
+	}
 
-	/*
-	Instantiate(1);
-	Entity* ship = Instantiate(3);
-	Entity* cam = Instantiate(2);
-	cam->set_target(ship);
-	int dis = 20;
-	cam->set_x(dis);
-	cam->set_y(dis);
-	cam->set_z(dis);
-	Instantiate(4);
-	Instantiate(5);
-	*/
 
 	// Setting the loop functions
 	glutDisplayFunc(DrawCallback);

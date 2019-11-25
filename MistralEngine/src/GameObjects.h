@@ -12,7 +12,7 @@ using namespace std;
 
 class Axis : public Entity {
 public:
-	Axis( unsigned int identificator, MistralEngine* g) : Entity(identificator, g) {} ;
+	Axis( MistralEngine* g ) : Entity(g) { Create(); };
 
 	void Draw();
 
@@ -22,7 +22,7 @@ private:
 
 class SkyBox : public Entity {
 public:
-	SkyBox(unsigned int identificator, MistralEngine* g) : Entity(identificator, g) {};
+	SkyBox( MistralEngine* g ) : Entity(g) { Create(); };
 
 	void Draw();
 
@@ -33,14 +33,16 @@ private:
 
 class Camera : public Entity {
 public:
-	Camera(unsigned int identificator, MistralEngine* g) : Entity(identificator, g) {};
+	Camera( MistralEngine* g ) : Entity(g) { Create(); };
 
 	void CameraUpdate();
+
+	Entity* target;
 };
 
 class SpaceShip : public Entity {
 public:
-	SpaceShip(unsigned int identificator, MistralEngine* g) : Entity(identificator, g) {};
+	SpaceShip( MistralEngine* g ) : Entity(g) { Create(); };
 
 	void Update();
 
@@ -55,7 +57,7 @@ private:
 
 class Planet : public Entity {
 public:
-	Planet(unsigned int identificator, MistralEngine* g) : Entity(identificator, g) {};
+	Planet( MistralEngine* g ) : Entity(g) { Create(); };
 
 	void Update();
 	void Draw();
@@ -68,7 +70,7 @@ private:
 
 class Stars : public Entity {
 public:
-	Stars(unsigned int identificator, MistralEngine* g) : Entity(identificator, g) {};
+	Stars( MistralEngine*  g ) : Entity(g) { Create(); };
 
 	void Draw();
 
@@ -79,4 +81,42 @@ private:
 
 	int starsPos[10000][3];
 };
+
+class Eye : public Entity {
+public:
+
+	Eye(MistralEngine* g) : Entity(g) { Create(); };
+
+	void Create() {
+		LoadModel("Resources/Models/Eyeball/Eyeball.obj", "Resources/Shaders/vertex1.frag", "Resources/Shaders/fragment1.frag");
+		y_origin = -8.0f;
+		x_scale = 0.1f;
+		y_scale = 0.1f;
+		z_scale = 0.1f;
+		y = id;
+	}
+
+	void Update() {
+		y_angle += 0.001;
+	}
+};
+
+class NanoSuit : public Entity {
+public:
+
+	NanoSuit(MistralEngine* g) : Entity(g) { Create(); };
+
+	void Create() {
+		LoadModel("Resources/Models/nanosuit/nanosuit.obj", "Resources/Shaders/vertex1.frag", "Resources/Shaders/fragment1.frag");
+		y_origin = -8.0f;
+		x_scale = 0.1f;
+		y_scale = 0.1f;
+		z_scale = 0.1f;
+	}
+
+	void Update() {
+		z_angle += 0.001;
+	}
+};
+
 #endif

@@ -7,12 +7,7 @@ using namespace std;
 // ==================================================================
 //    THESE METHODS SHOULD NOT BE OVERWRITTED ON AN INHERITED CLASS
 // ==================================================================
-Entity::Entity( unsigned int identidier, MistralEngine* g) {
-	id = identidier;
-
-	program.create("Resources/Shaders/vertex1.frag", "Resources/Shaders/fragment1.frag");
-	model.create("Resources/Models/Eyeball/eyeball.obj");
-
+Entity::Entity(MistralEngine* g) {
 	name = "";
 	x = 0.0f;
 	y = 0.0f;
@@ -20,9 +15,9 @@ Entity::Entity( unsigned int identidier, MistralEngine* g) {
 	x_origin = 0.0f;
 	y_origin = 0.0f;
 	z_origin = 0.0f;
-	x_scale = 0.5f;
-	y_scale = 0.5f;
-	z_scale = 0.5f;
+	x_scale = 1.0f;
+	y_scale = 1.0f;
+	z_scale = 1.0f;
 	x_angle = 0.0f;
 	y_angle = 0.0f;
 	z_angle = 0.0f;
@@ -31,22 +26,37 @@ Entity::Entity( unsigned int identidier, MistralEngine* g) {
 	blue = 1;
 
 	game = g;
+
+
+	id = g->EntitiesList.size();
+	game->EntitiesCount();
+
+	g->EntitiesList.push_back(this);
 }
 
-void Entity::DrawSelf() {	
-	program.use();
+void Entity::LoadModel(string modelPath, string vertexPath, string fragmentPath) {
+	if (!visible) {
+		program.create(vertexPath.c_str(), fragmentPath.c_str());
+		model.create(modelPath.c_str());
+		visible = true;
+	}
+}
 
-	// render the loaded model
-	glm::mat4 modelMat = glm::mat4(1.0f);
-	modelMat = glm::translate(modelMat, glm::vec3(x_origin, y_origin, z_origin)); // translate it down so it's at the center of the scene
-	modelMat = glm::translate(modelMat, glm::vec3(x, y, z)); // translate it down so it's at the center of the scene
-	modelMat = glm::rotate(modelMat, glm::degrees(x_angle), glm::vec3(1.0f, 0.0f, 0.0f));
-	modelMat = glm::rotate(modelMat, glm::degrees(y_angle), glm::vec3(0.0f, 1.0f, 0.0f));
-	modelMat = glm::rotate(modelMat, glm::degrees(z_angle), glm::vec3(0.0f, 0.0f, 1.0f));
-	modelMat = glm::scale(modelMat, glm::vec3(x_scale, y_scale, z_scale));	// it's a bit too big for our scene, so scale it down
-	program.setMat4("model", modelMat);
-	model.Draw(program);
+void Entity::DrawSelf() {
+	if (visible) {
+		program.use();
 
+		// render the loaded model
+		glm::mat4 modelMat = glm::mat4(4.0f);
+		modelMat = glm::scale(modelMat, glm::vec3(x_scale, y_scale, z_scale));	// it's a bit too big for our scene, so scale it down
+		modelMat = glm::rotate(modelMat, glm::degrees(x_angle), glm::vec3(1.0f, 0.0f, 0.0f));
+		modelMat = glm::rotate(modelMat, glm::degrees(y_angle), glm::vec3(0.0f, 1.0f, 0.0f));
+		modelMat = glm::rotate(modelMat, glm::degrees(z_angle), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelMat = glm::translate(modelMat, glm::vec3(x, y, z)); // translate it down so it's at the center of the scene
+		modelMat = glm::translate(modelMat, glm::vec3(x_origin, y_origin, z_origin)); // translate it down so it's at the center of the scene
+		program.setMat4("model", modelMat);
+		model.Draw(program);
+	}
 }
 
 
@@ -88,6 +98,8 @@ float Entity::get_green() { return green; }
 
 float Entity::get_blue() { return blue; }
 
+float Entity::get_alpha() { return alpha; }
+
 void Entity::set_name(string value) { name = value; }
 
 void Entity::set_x( float value ) { x = value; }
@@ -120,4 +132,4 @@ void Entity::set_green( float value ) { green = value; }
 
 void Entity::set_blue( float value ) { blue = value; }
 
-void Entity::set_target( Entity* t ) { target = t; }
+void Entity::set_alpha(float value) { alpha = value; }
