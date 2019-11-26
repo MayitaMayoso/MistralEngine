@@ -12,6 +12,9 @@ newmtl BodyB
 	Kd 0.8000 0.8000 0.8000
 	Ks 0.2000 0.2000 0.2000
 	Ke 0.0000 0.0000 0.0000
+	map_Kd FitLink00_BodyB.png
+	map_Bump FitLink00_BodyB.png
+	map_Ks FitLink00_BodyB.png
 
 newmtl FitLink_Grip
 	Ns 43.2193
@@ -24,6 +27,9 @@ newmtl FitLink_Grip
 	Kd 0.8000 0.8000 0.8000
 	Ks 0.2000 0.2000 0.2000
 	Ke 0.0000 0.0000 0.0000
+	map_Kd FitLink00_Grip.png
+	map_Bump FitLink00_Grip.png
+	map_Ks FitLink00_Grip.png
 
 newmtl FitLink_Blade
 	Ns 43.2193
@@ -36,6 +42,9 @@ newmtl FitLink_Blade
 	Kd 0.8000 0.8000 0.8000
 	Ks 0.2000 0.2000 0.2000
 	Ke 0.0000 0.0000 0.0000
+	map_Kd FitLink00_Blade.png
+	map_Bump FitLink00_Blade.png
+	map_Ks FitLink00_Blade.png
 
 newmtl Hair
 	Ns 43.2193
@@ -48,6 +57,9 @@ newmtl Hair
 	Kd 0.8000 0.8000 0.8000
 	Ks 0.2000 0.2000 0.2000
 	Ke 0.0000 0.0000 0.0000
+	map_Kd FitLink00_BodyB.png
+	map_Bump FitLink00_BodyB.png
+	map_Ks FitLink00_BodyB.png
 
 newmtl BodyC
 	Ns 43.2193
@@ -60,6 +72,9 @@ newmtl BodyC
 	Kd 0.8000 0.8000 0.8000
 	Ks 0.2000 0.2000 0.2000
 	Ke 0.0000 0.0000 0.0000
+	map_Kd FitLink00_BodyC.png
+	map_Bump FitLink00_BodyC.png
+	map_Ks FitLink00_BodyC.png
 
 newmtl FitLink_EyeL
 	Ns 43.2193
@@ -72,6 +87,9 @@ newmtl FitLink_EyeL
 	Kd 0.8000 0.8000 0.8000
 	Ks 0.2000 0.2000 0.2000
 	Ke 0.0000 0.0000 0.0000
+	map_Kd FitLink00_Eye_SiromeL.png
+	map_Bump FitLink00_Eye_SiromeL.png
+	map_Ks FitLink00_Eye_SiromeL.png
 
 newmtl FitLink_EyeR
 	Ns 43.2193
@@ -84,6 +102,9 @@ newmtl FitLink_EyeR
 	Kd 0.8000 0.8000 0.8000
 	Ks 0.2000 0.2000 0.2000
 	Ke 0.0000 0.0000 0.0000
+	map_Kd FitLink00_Eye_Sirome.png
+	map_Bump FitLink00_Eye_Sirome.png
+	map_Ks FitLink00_Eye_Sirome.png
 
 newmtl Shield
 	Ns 43.2193
@@ -96,6 +117,9 @@ newmtl Shield
 	Kd 0.8000 0.8000 0.8000
 	Ks 0.2000 0.2000 0.2000
 	Ke 0.0000 0.0000 0.0000
+	map_Kd FitLink00_Shield.png
+	map_Bump FitLink00_Shield.png
+	map_Ks FitLink00_Shield.png
 
 newmtl BodyA
 	Ns 43.2193
@@ -108,6 +132,9 @@ newmtl BodyA
 	Kd 0.8000 0.8000 0.8000
 	Ks 0.2000 0.2000 0.2000
 	Ke 0.0000 0.0000 0.0000
+	map_Kd FitLink00_BodyA.png
+	map_Bump FitLink00_BodyA.png
+	map_Ks FitLink00_BodyA.png
 
 newmtl FitLink_Sheath
 	Ns 43.2193
@@ -120,6 +147,9 @@ newmtl FitLink_Sheath
 	Kd 0.8000 0.8000 0.8000
 	Ks 0.2000 0.2000 0.2000
 	Ke 0.0000 0.0000 0.0000
+	map_Kd FitLink00_Sheath.png
+	map_Bump FitLink00_Sheath.png
+	map_Ks FitLink00_Sheath.png
 
 newmtl Face
 	Ns 43.2193
@@ -132,6 +162,9 @@ newmtl Face
 	Kd 0.8000 0.8000 0.8000
 	Ks 0.2000 0.2000 0.2000
 	Ke 0.0000 0.0000 0.0000
+	map_Kd FitLink00_Face.png
+	map_Bump FitLink00_Face.png
+	map_Ks FitLink00_Face.png
 
 newmtl Courage
 	Ns 43.2193
