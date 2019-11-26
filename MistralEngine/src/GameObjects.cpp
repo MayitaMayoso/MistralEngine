@@ -49,6 +49,13 @@ void SkyBox::Draw() {
 	glPopMatrix();
 }
 
+void Camera::Create() {
+	target = new SpaceShip(game);
+	set_position(20, 20, 20);
+
+	cout << get_name();
+}
+
 void Camera::CameraUpdate() {
 	gluLookAt(x, y, z, target->get_x(), target->get_y(), target->get_z(), 0, 1, 0);
 }

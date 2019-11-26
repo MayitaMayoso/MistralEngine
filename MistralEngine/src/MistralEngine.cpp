@@ -126,7 +126,10 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 
 	setSelf(s);
 	
-	new Character(self);
+	new SkyBox(self);
+	new Stars(self);
+	new Planet(self);
+	new Camera(self);
 	
 	// Setting the loop functions
 	glutDisplayFunc(DrawCallback);

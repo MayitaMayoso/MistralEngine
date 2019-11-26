@@ -8,7 +8,6 @@ using namespace std;
 //    THESE METHODS SHOULD NOT BE OVERWRITTED ON AN INHERITED CLASS
 // ==================================================================
 Entity::Entity(MistralEngine* g) {
-	name = "";
 	x = 0.0f;
 	y = 0.0f;
 	z = 0.0f;
@@ -34,14 +33,6 @@ Entity::Entity(MistralEngine* g) {
 	g->EntitiesList.push_back(this);
 }
 
-void Entity::LoadModel(string modelPath) {
-	string vertexPath = "_resources/Shaders/vertex1.frag";
-	string fragmentPath = "_resources/Shaders/fragment1.frag";
-	modelPath = "_resources/Models/" + modelPath;
-	program.create(vertexPath.c_str(), fragmentPath.c_str());
-	model.create(modelPath.c_str());
-}
-
 void Entity::DrawSelf() {
 	if (visible) {
 		program.use();
@@ -59,14 +50,27 @@ void Entity::DrawSelf() {
 	}
 }
 
+void Entity::LoadModel(string modelPath) {
+	string vertexPath = "_resources/Shaders/vertex1.frag";
+	string fragmentPath = "_resources/Shaders/fragment1.frag";
+	modelPath = "_resources/Models/" + modelPath;
+	program.create(vertexPath.c_str(), fragmentPath.c_str());
+	model.create(modelPath.c_str());
+}
 
 // ==================================================================
 //    THESE ARE THE GETTERS AND SETTERS OF THE ENTITY CLASS
 // ==================================================================
 
-string Entity::get_name() { return name; }
+// GETTERS
 
 unsigned int Entity::get_id() { return id; }
+
+string Entity::get_name() {
+	string ctype = typeid(*this).name();
+	int len = ctype.length();
+	return ctype.substr(6, len);
+}
 
 float Entity::get_x() { return x; }
 
@@ -74,11 +78,13 @@ float Entity::get_y() { return y; }
 
 float Entity::get_z() { return z; }
 
+
 float Entity::get_x_origin() { return x_origin; }
 
 float Entity::get_y_origin() { return y_origin; }
 
 float Entity::get_z_origin() { return z_origin; }
+
 
 float Entity::get_x_scale() { return x_scale; }
 
@@ -86,11 +92,13 @@ float Entity::get_y_scale() { return y_scale; }
 
 float Entity::get_z_scale() { return z_scale; }
 
+
 float Entity::get_x_angle() { return x_angle; }
 
 float Entity::get_y_angle() { return y_angle; }
 
 float Entity::get_z_angle() { return z_angle; }
+
 
 float Entity::get_red() { return red; }
 
@@ -100,7 +108,10 @@ float Entity::get_blue() { return blue; }
 
 float Entity::get_alpha() { return alpha; }
 
-void Entity::set_name(string value) { name = value; }
+
+// SETTERS
+
+void Entity::set_position(float x_value, float y_value, float z_value) { x = x_value; y = y_value; z = z_value; }
 
 void Entity::set_x( float value ) { x = value; }
 
@@ -108,11 +119,17 @@ void Entity::set_y( float value ) { y = value; }
 
 void Entity::set_z( float value) { z = value; }
 
+
+void Entity::set_origin(float x_value, float y_value, float z_value) { x_origin = x_value; y_origin = y_value; z_origin = z_value; }
+
 void Entity::set_x_origin( float value ) { x_origin = value; }
 
 void Entity::set_y_origin( float value ) { y_origin = value; }
 
 void Entity::set_z_origin( float value ) { z_origin = value; }
+
+
+void Entity::set_scale(float x_value, float y_value, float z_value) { x_scale = x_value; y_scale = y_value; z_scale = z_value; }
 
 void Entity::set_x_scale( float value ) { x_scale = value; }
 
@@ -120,11 +137,17 @@ void Entity::set_y_scale( float value ) { y_scale = value; }
 
 void Entity::set_z_scale( float value ) { z_scale = value; }
 
+
+void Entity::set_angle(float x_value, float y_value, float z_value) { x_angle = x_value; y_angle = y_value; z_angle = z_value; }
+
 void Entity::set_x_angle( float value ) { x_angle = value; }
 
 void Entity::set_y_angle( float value ) { y_angle = value; }
 
 void Entity::set_z_angle( float value ) { z_angle = value; }
+
+
+void Entity::set_rgba(float r_value, float g_value, float b_value, float a_value) { red = r_value; green = g_value; blue = b_value; alpha = a_value;  }
 
 void Entity::set_red( float value ) { red = value; }
 

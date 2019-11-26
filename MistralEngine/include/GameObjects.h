@@ -39,6 +39,8 @@ class Camera : public Entity {
 public:
 	Camera( MistralEngine* g ) : Entity(g) { Create(); };
 
+	void Create();
+
 	void CameraUpdate();
 
 	Entity* target;
