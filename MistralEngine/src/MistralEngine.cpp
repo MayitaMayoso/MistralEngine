@@ -1,25 +1,20 @@
 #define GLEW_STATIC
-
 #include "GameObjects.h"
 #include "MistralEngine.h"
 
 #include <GL/glew.h>
 #include <GL/glut.h>
-
 #include <iostream>
 #include <stdlib.h>
 #include <string>
 #include <errno.h>
 #include <stdio.h>
 #include <glm.hpp>
-
 #include <iostream>
-
-
-#include "vector"
+#include <vector>
 
 #define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
+#include "ImageLoader.h"
 
 using namespace std;
 
@@ -131,11 +126,8 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 
 	setSelf(s);
 	
-	for (int i = 0; i < 10; i++) {
-		new Eye(self);
-	}
-
-
+	new Character(self);
+	
 	// Setting the loop functions
 	glutDisplayFunc(DrawCallback);
 

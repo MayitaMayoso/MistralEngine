@@ -1,2 +1,8 @@
 ﻿  Entity.cpp
+  GameObjects.cpp
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\include\GameObjects.h(108,1): warning C4305: '-=': truncation from 'double' to 'float'
+  MistralEngine.cpp
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(86,16): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\include\GameObjects.h(108,1): warning C4305: '-=': truncation from 'double' to 'float'
   MistralEngine.vcxproj -> C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Debug\MistralEngine.exe

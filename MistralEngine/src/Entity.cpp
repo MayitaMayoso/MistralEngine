@@ -34,12 +34,12 @@ Entity::Entity(MistralEngine* g) {
 	g->EntitiesList.push_back(this);
 }
 
-void Entity::LoadModel(string modelPath, string vertexPath, string fragmentPath) {
-	if (!visible) {
-		program.create(vertexPath.c_str(), fragmentPath.c_str());
-		model.create(modelPath.c_str());
-		visible = true;
-	}
+void Entity::LoadModel(string modelPath) {
+	string vertexPath = "_resources/Shaders/vertex1.frag";
+	string fragmentPath = "_resources/Shaders/fragment1.frag";
+	modelPath = "_resources/Models/" + modelPath;
+	program.create(vertexPath.c_str(), fragmentPath.c_str());
+	model.create(modelPath.c_str());
 }
 
 void Entity::DrawSelf() {

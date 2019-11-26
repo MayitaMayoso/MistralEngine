@@ -25,14 +25,14 @@
     <ClCompile Include="src\Scenario.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Entity.h" />
-    <ClInclude Include="src\GameObjects.h" />
-    <ClInclude Include="src\Mesh.h" />
-    <ClInclude Include="src\MistralEngine.h" />
-    <ClInclude Include="src\Model.h" />
-    <ClInclude Include="src\Program.h" />
-    <ClInclude Include="src\Scenario.h" />
-    <ClInclude Include="src\stb_image.h" />
+    <ClInclude Include="include\Entity.h" />
+    <ClInclude Include="include\GameObjects.h" />
+    <ClInclude Include="include\Mesh.h" />
+    <ClInclude Include="include\MistralEngine.h" />
+    <ClInclude Include="include\Model.h" />
+    <ClInclude Include="include\Program.h" />
+    <ClInclude Include="include\Scenario.h" />
+    <ClInclude Include="include\ImageLoader.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -107,7 +107,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLUT\include;$(SolutionDir)Dependencies\glm-0.9.9.6\glm\glm;$(SolutionDir)Dependencies\assimp\include;$(MSBuildProjectDirectory)\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLUT\include;$(SolutionDir)Dependencies\glm-0.9.9.6\glm\glm;$(SolutionDir)Dependencies\assimp\include;$(MSBuildProjectDirectory)\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
