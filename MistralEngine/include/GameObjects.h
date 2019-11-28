@@ -111,4 +111,23 @@ public:
 	}
 };
 
+class Nanosuit : public Entity {
+public:
+
+	Nanosuit(MistralEngine* g) : Entity(g) { Create(); };
+
+	void Create() {
+		LoadModel("nanosuit/nanosuit.obj");
+		//y_origin = -8.0f;
+		x_scale = 0.05f;
+		y_scale = 0.05f;
+		z_scale = 0.05f;
+		y = -6;
+	}
+
+	void Update() {
+		x -= 0.1;
+	}
+};
+
 #endif

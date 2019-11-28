@@ -45,8 +45,10 @@ void Entity::DrawSelf() {
 		modelMat = glm::rotate(modelMat, glm::degrees(z_angle), glm::vec3(0.0f, 0.0f, 1.0f));
 		modelMat = glm::translate(modelMat, glm::vec3(x, y, z)); // translate it down so it's at the center of the scene
 		modelMat = glm::translate(modelMat, glm::vec3(x_origin, y_origin, z_origin)); // translate it down so it's at the center of the scene
-		program.setMat4("model", modelMat);
-		model.Draw(program);
+		const std::string& name = "model";
+		glProgramUniformMatrix4fv(program.getId(), glGetUniformLocation(program.getId(), name.c_str()), 1, GL_FALSE, &modelMat[0][0]);
+
+		model.Draw(program.getId());
 	}
 }
 
@@ -54,7 +56,7 @@ void Entity::LoadModel(string modelPath) {
 	string vertexPath = "_resources/Shaders/vertex1.frag";
 	string fragmentPath = "_resources/Shaders/fragment1.frag";
 	modelPath = "_resources/Models/" + modelPath;
-	program.create(vertexPath.c_str(), fragmentPath.c_str());
+	program.load(vertexPath.c_str(), fragmentPath.c_str());
 	model.create(modelPath.c_str());
 }
 

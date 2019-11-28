@@ -22,6 +22,7 @@
     <ClCompile Include="src\Entity.cpp" />
     <ClCompile Include="src\GameObjects.cpp" />
     <ClCompile Include="src\MistralEngine.cpp" />
+    <ClCompile Include="src\Program.cpp" />
     <ClCompile Include="src\Scenario.cpp" />
   </ItemGroup>
   <ItemGroup>

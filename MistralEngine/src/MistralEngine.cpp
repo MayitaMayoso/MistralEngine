@@ -94,6 +94,14 @@ void MistralEngine::GeneralUpdate(int value) {
 	glutPostRedisplay();
 }
 
+void GLAPIENTRY MessageCallback(GLenum source,GLenum type,GLuint id,GLenum severity,GLsizei length,const GLchar* message,const void* userParam)
+{
+	// Show OpenGL errors
+	fprintf(stderr, "GL CALLBACK: %s type = 0x%x, severity = 0x%x, message = %s\n",(type == GL_DEBUG_TYPE_ERROR ? "** GL ERROR **" : ""),
+		type, severity, message);
+}
+
+
 
 int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	// Initializing
@@ -107,6 +115,7 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	glutCreateWindow("Mistral Engine");
 
 	GLenum glewerror = glewInit();
+
 	
 
 	if (glewerror != GLEW_OK)
@@ -115,7 +124,8 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 		return 1;
 	}
 
-	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_DEPTH_TEST|GL_DEBUG_OUTPUT);
+	glDebugMessageCallback(MessageCallback, 0);
 	glDepthMask(GL_TRUE);
 	glDepthFunc(GL_LESS);
 	glDepthRange(0.0f, 1.0f);
@@ -126,10 +136,14 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 
 	setSelf(s);
 	
+	/*
 	new SkyBox(self);
 	new Stars(self);
 	new Planet(self);
 	new Camera(self);
+*/
+	new Character(self);
+	new Nanosuit(self);
 	
 	// Setting the loop functions
 	glutDisplayFunc(DrawCallback);
@@ -140,6 +154,7 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 
 	return 0;
 }
+
 
 int main(int argc, char* args[]) {
 	MistralEngine* game = new MistralEngine();
