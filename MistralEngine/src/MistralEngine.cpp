@@ -1,6 +1,7 @@
 #define GLEW_STATIC
 #include "GameObjects.h"
 #include "MistralEngine.h"
+#include "Scenario.h"
 
 #include <GL/glew.h>
 #include <GL/glut.h>
@@ -124,8 +125,9 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 		return 1;
 	}
 
-	glEnable(GL_DEPTH_TEST|GL_DEBUG_OUTPUT);
-	glDebugMessageCallback(MessageCallback, 0);
+	glEnable(GL_DEPTH_TEST);
+	//glEnable(GL_DEBUG_OUTPUT);
+	//glDebugMessageCallback(MessageCallback, 0);
 	glDepthMask(GL_TRUE);
 	glDepthFunc(GL_LESS);
 	glDepthRange(0.0f, 1.0f);
@@ -142,8 +144,14 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	new Planet(self);
 	new Camera(self);
 */
+
+	/*
 	new Character(self);
 	new Nanosuit(self);
+	*/
+
+	Scenario* scenario = new Scenario(self);
+	scenario->ReadScenario("_resources/Scenarios/scenario.txt");
 	
 	// Setting the loop functions
 	glutDisplayFunc(DrawCallback);

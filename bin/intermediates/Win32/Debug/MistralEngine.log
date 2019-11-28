@@ -1,9 +1,4 @@
-﻿  GameObjects.cpp
+﻿  Scenario.cpp
 C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\include\GameObjects.h(110,1): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\include\GameObjects.h(129,1): warning C4305: '-=': truncamiento de 'double' a 'float'
-  MistralEngine.cpp
-C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\src\GameObjects.cpp(93,16): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\include\GameObjects.h(110,1): warning C4305: '-=': truncamiento de 'double' a 'float'
-  Generando código...
 C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\include\GameObjects.h(129,1): warning C4305: '-=': truncamiento de 'double' a 'float'
   MistralEngine.vcxproj -> C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\bin\Win32\Debug\MistralEngine.exe
