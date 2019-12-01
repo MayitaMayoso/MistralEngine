@@ -14,6 +14,8 @@
 #include <iostream>
 #include <vector>
 
+#include "Program.h"
+
 #define STB_IMAGE_IMPLEMENTATION
 #include "ImageLoader.h"
 
@@ -40,6 +42,14 @@ unsigned int MistralEngine::EntitiesCount() {
 	return EntitiesList.size();
 }
 
+GLint MistralEngine::getProgram(string name) {
+	auto it = std::find_if(programs.begin(), programs.end(),
+		[&name](const pair<string, GLint>& element) { return element.first == name; });
+
+	return it->second;
+}
+
+
 float MistralEngine::wave(float from, float to, float duration, float offset) {
 	float A = float((to - from) * 0.5);
 	float W = float(CurrentTime * 0.001);
@@ -64,10 +74,13 @@ void MistralEngine::GeneralDraw() {
 
 	gluPerspective(fov, AspectRatio, 0.01, 1000);
 	
+
+
 	// Camera Event
 	for (Entity* e : EntitiesList) {
 		e->CameraUpdate();
 	}
+
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
@@ -143,12 +156,17 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	new Stars(self);
 	new Planet(self);
 	new Camera(self);
-*/
+	*/
 
 	/*
 	new Character(self);
 	new Nanosuit(self);
 	*/
+	string vertexPath = "_resources/Shaders/vertex1.frag";
+	string fragmentPath = "_resources/Shaders/fragment1.frag";
+	programs.push_back(make_pair("model", Program(vertexPath.c_str(), fragmentPath.c_str()).getId()));
+
+	new Camera(self);
 
 	Scenario* scenario = new Scenario(self);
 	scenario->ReadScenario("_resources/Scenarios/scenario.txt");

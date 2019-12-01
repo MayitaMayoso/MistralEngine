@@ -126,7 +126,7 @@ public:
 	}
 
 	void Update() {
-		x -= 0.1;
+		z += 0.02f;
 	}
 };
 

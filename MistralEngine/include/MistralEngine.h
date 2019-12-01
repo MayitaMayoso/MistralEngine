@@ -14,6 +14,7 @@
 #include <glm.hpp>
 #include <iostream>
 #include <vector>
+#include "Program.h"
 
 # define PI 3.14159265358979323846
 
@@ -31,15 +32,20 @@ public:
 	static MistralEngine* self;
 
 	static void setSelf(MistralEngine* s) { self = s;  };
+	GLint getProgram(string name);
+
 
 	int width, height, fov, fps;
 	float AspectRatio;
+
+	glm::mat4 cameraView = glm::mat4(1.0f);
 
 	chrono::high_resolution_clock::time_point t0;
 	int CurrentTime;
 
 	unsigned int EntitiesCount();
 	list<Entity*> EntitiesList;
+	vector<pair<string, GLint>> programs;
 
 private:
 	void CalculateTime();

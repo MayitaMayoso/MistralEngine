@@ -46,7 +46,11 @@ void Entity::DrawSelf() {
 		modelMat = glm::translate(modelMat, glm::vec3(x, y, z)); // translate it down so it's at the center of the scene
 		modelMat = glm::translate(modelMat, glm::vec3(x_origin, y_origin, z_origin)); // translate it down so it's at the center of the scene
 		const std::string& name = "model";
+		const std::string& nameCamera = "view";
 		glProgramUniformMatrix4fv(program.getId(), glGetUniformLocation(program.getId(), name.c_str()), 1, GL_FALSE, &modelMat[0][0]);
+		glProgramUniformMatrix4fv(program.getId(), glGetUniformLocation(program.getId(), nameCamera.c_str()), 1, GL_FALSE, &game->cameraView[0][0]);
+
+
 
 		model.Draw(program.getId());
 	}
