@@ -1,4 +1,1 @@
-﻿  GameObjects.cpp
-C:\Users\Marc\Desktop\VGI\MistralEngine\include\GameObjects.h(110,1): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\Users\Marc\Desktop\VGI\MistralEngine\src\GameObjects.cpp(96,16): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
-  MistralEngine.vcxproj -> C:\Users\Marc\Desktop\VGI\bin\Win32\Debug\MistralEngine.exe
+﻿  MistralEngine.vcxproj -> C:\Users\Daniel Rojas\source\repos\VGI\MistralEngineVS2019_2\bin\Win32\Debug\MistralEngine.exe

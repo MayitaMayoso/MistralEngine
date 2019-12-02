@@ -2,6 +2,8 @@
 #include "GameObjects.h"
 #include "MistralEngine.h"
 #include "Scenario.h"
+#include "Audio.h"
+#include "AudioSource.h"
 
 #include <GL/glew.h>
 #include <GL/glut.h>
@@ -162,6 +164,17 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	new Character(self);
 	new Nanosuit(self);
 	*/
+
+
+	//Testing audio
+	Audio audio;
+	audio.setListenerData();
+	int buffer = audio.loadSound("_resources/Audios/laser_bullet.wav");
+	AudioSource* source = new AudioSource;
+	source->playSound(buffer);
+
+
+
 
 	
 	string vertexPath = "_resources/Shaders/vertex1.frag";
