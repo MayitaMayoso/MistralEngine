@@ -162,11 +162,30 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	new Character(self);
 	new Nanosuit(self);
 	*/
+
+	
 	string vertexPath = "_resources/Shaders/vertex1.frag";
 	string fragmentPath = "_resources/Shaders/fragment1.frag";
 	programs.push_back(make_pair("model", Program(vertexPath.c_str(), fragmentPath.c_str()).getId()));
 
-	new Camera(self);
+
+	unsigned int VBO = NULL;
+	unsigned int lightVAO;
+	glGenVertexArrays(1, &lightVAO);
+	glBindVertexArray(lightVAO);
+	// we only need to bind to the VBO, the container's VBO's data already contains the correct data.
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	// set the vertex attributes (only position data for our lamp)
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(0);
+
+
+
+
+
+
+
+	//new Camera(self);
 
 	Scenario* scenario = new Scenario(self);
 	scenario->ReadScenario("_resources/Scenarios/scenario.txt");

@@ -1,39 +1,4 @@
-﻿  Entity.cpp
-  GameObjects.cpp
-C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\include\GameObjects.h(110,1): warning C4305: '-=': truncamiento de 'double' a 'float'
-  MistralEngine.cpp
-C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\src\GameObjects.cpp(96,16): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
-  Scenario.cpp
-C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\include\GameObjects.h(110,1): warning C4305: '-=': truncamiento de 'double' a 'float'
-  Generando código...
-C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\include\GameObjects.h(110,1): warning C4305: '-=': truncamiento de 'double' a 'float'
-LINK : warning LNK4098: la biblioteca predeterminada'LIBCMT' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
-LINK : warning LNK4286: "___glewActiveTexture" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Entity.obj"
-LINK : warning LNK4286: "___glewBindBuffer" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Entity.obj"
-LINK : warning LNK4286: "___glewBufferData" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Entity.obj"
-LINK : warning LNK4286: "___glewGenBuffers" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Entity.obj"
-LINK : warning LNK4286: "___glewDeleteProgram" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Entity.obj"
-LINK : warning LNK4286: "___glewDeleteProgram" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "GameObjects.obj"
-LINK : warning LNK4286: "___glewDeleteProgram" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Scenario.obj"
-LINK : warning LNK4286: "___glewEnableVertexAttribArray" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Entity.obj"
-LINK : warning LNK4286: "___glewGetUniformLocation" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Entity.obj"
-LINK : warning LNK4286: "___glewUniform1i" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Entity.obj"
-LINK : warning LNK4286: "___glewUseProgram" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Entity.obj"
-LINK : warning LNK4286: "___glewVertexAttribPointer" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Entity.obj"
-LINK : warning LNK4286: "___glewGenerateMipmap" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Entity.obj"
-LINK : warning LNK4286: "___glewProgramUniformMatrix4fv" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Entity.obj"
-LINK : warning LNK4286: "___glewBindVertexArray" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Entity.obj"
-LINK : warning LNK4286: "___glewGenVertexArrays" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Entity.obj"
-LINK : warning LNK4286: "___glewAttachShader" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Program.obj"
-LINK : warning LNK4286: "___glewCompileShader" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Program.obj"
-LINK : warning LNK4286: "___glewCreateProgram" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Program.obj"
-LINK : warning LNK4286: "___glewCreateShader" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Program.obj"
-LINK : warning LNK4286: "___glewDeleteShader" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Program.obj"
-LINK : warning LNK4286: "___glewGetProgramInfoLog" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Program.obj"
-LINK : warning LNK4286: "___glewGetProgramiv" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Program.obj"
-LINK : warning LNK4286: "___glewGetShaderInfoLog" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Program.obj"
-LINK : warning LNK4286: "___glewGetShaderiv" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Program.obj"
-LINK : warning LNK4286: "___glewLinkProgram" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Program.obj"
-LINK : warning LNK4286: "___glewShaderSource" importa el sÝmbolo "glew32s.lib(glew.obj)" definido en "Program.obj"
-glew32s.lib(glew.obj) : warning LNK4099: no se encontr¾ PDB 'vc120.pdb' con 'glew32s.lib(glew.obj)' o en 'C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\bin\Win32\Debug\vc120.pdb'; se vincularß el objeto sin tener en cuenta informaci¾n de depuraci¾n
-  MistralEngine.vcxproj -> C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\bin\Win32\Debug\MistralEngine.exe
+﻿  GameObjects.cpp
+C:\Users\Marc\Desktop\VGI\MistralEngine\include\GameObjects.h(110,1): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\Marc\Desktop\VGI\MistralEngine\src\GameObjects.cpp(96,16): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
+  MistralEngine.vcxproj -> C:\Users\Marc\Desktop\VGI\bin\Win32\Debug\MistralEngine.exe

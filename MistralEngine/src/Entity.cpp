@@ -36,6 +36,21 @@ Entity::Entity(MistralEngine* g) {
 void Entity::DrawSelf() {
 	if (visible) {
 		program.use();
+		
+		
+		GLfloat R = 1.0f, G = 1.0f, B = 1.0f;
+		GLfloat X = 0.0f, Y = 0.0f, Z = -7.0f;
+		GLfloat Strenght = 0.2f;
+		int SpecularStrenght = 32;
+
+		program.setVec3("lightColor", R, G, B);
+		program.setVec3("lightPos", X, Y, Z);
+		program.setFloat("intensity", Strenght);
+		program.setVec3("viewPos", 0, 0, 0); //posicion de la camara
+		program.setInt("specularintensity", SpecularStrenght);
+		
+
+		
 
 		// render the loaded model
 		glm::mat4 modelMat = glm::mat4(1.0f);
@@ -45,6 +60,7 @@ void Entity::DrawSelf() {
 		modelMat = glm::rotate(modelMat, glm::degrees(z_angle), glm::vec3(0.0f, 0.0f, 1.0f));
 		modelMat = glm::translate(modelMat, glm::vec3(x, y, z)); // translate it down so it's at the center of the scene
 		modelMat = glm::translate(modelMat, glm::vec3(x_origin, y_origin, z_origin)); // translate it down so it's at the center of the scene
+		
 		const std::string& name = "model";
 		const std::string& nameCamera = "view";
 		glProgramUniformMatrix4fv(program.getId(), glGetUniformLocation(program.getId(), name.c_str()), 1, GL_FALSE, &modelMat[0][0]);
