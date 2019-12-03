@@ -52,8 +52,20 @@ private:
 
 	virtual void GeneralUpdate(int value);
 	virtual void GeneralDraw();
+	virtual void GeneralPressKeyboard( unsigned char key, int x, int y );
+	virtual void GeneralPressSpecial( int key, int x, int y );
+	virtual void GeneralPressGamepad( unsigned int key, int x, int y, int z );
+	virtual void GeneralReleaseKeyboard(unsigned char key, int x, int y);
+	virtual void GeneralReleaseSpecial(int key, int x, int y);
+	//virtual void GeneralReleaseGamepad(unsigned int key, int x, int y, int z);
 
-	static void UpdateCallback(int value) { self->GeneralUpdate(value); };
+	static void UpdateCallback( int value ) { self->GeneralUpdate(value); };
 	static void DrawCallback() { self->GeneralDraw(); };
+	static void KeyboardPressCallback( unsigned char key, int x, int y ) { self->GeneralPressKeyboard( key, x, y); };
+	static void SpecialPressCallback( int key, int x, int y) { self->GeneralPressSpecial(key, x, y); };
+	static void GamepadPressCallback( unsigned int key, int x, int y, int z ) { self->GeneralPressGamepad(key, x, y, z); };
+	static void KeyboardReleaseCallback(unsigned char key, int x, int y) { self->GeneralReleaseKeyboard(key, x, y); };
+	static void SpecialReleaseCallback(int key, int x, int y) { self->GeneralReleaseSpecial(key, x, y); };
+	//static void GamepadReleaseCallback(unsigned int key, int x, int y, int z) { self->GeneralReleaseGamepad(key, x, y, z); };
 };
 #endif

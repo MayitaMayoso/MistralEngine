@@ -4,6 +4,7 @@
 #include "Scenario.h"
 #include "Audio.h"
 #include "AudioSource.h"
+#include "Input.h"
 
 #include <GL/glew.h>
 #include <GL/glut.h>
@@ -110,6 +111,27 @@ void MistralEngine::GeneralUpdate(int value) {
 	glutPostRedisplay();
 }
 
+void MistralEngine::GeneralPressKeyboard(unsigned char key, int x, int y) {
+	cout << toupper(key) << "	---	" << x << "	---	" << y << endl;
+	cout << (int)toupper(key) << endl;
+}
+
+void MistralEngine::GeneralPressSpecial( int key, int x, int y) {
+	cout << key << "	---	" << x << "	---	" << y << endl;
+}
+
+void MistralEngine::GeneralPressGamepad( unsigned int key, int x, int y, int z) {
+	cout << key << "	---	" << x << "	---	" << y << "	---	" << z << endl;
+}
+
+void MistralEngine::GeneralReleaseKeyboard(unsigned char key, int x, int y) {
+	cout << toupper(key) << "	---	" << x << "	---	" << y << endl;
+}
+
+void MistralEngine::GeneralReleaseSpecial(int key, int x, int y) {
+	cout << key << "	---	" << x << "	---	" << y << endl;
+}
+
 void GLAPIENTRY MessageCallback(GLenum source,GLenum type,GLuint id,GLenum severity,GLsizei length,const GLchar* message,const void* userParam)
 {
 	// Show OpenGL errors
@@ -122,6 +144,7 @@ void GLAPIENTRY MessageCallback(GLenum source,GLenum type,GLuint id,GLenum sever
 int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	// Initializing
 	glutInit(&argc, args);
+	setSelf(s);
 
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GL_DEPTH_BUFFER_BIT);
 
@@ -149,33 +172,12 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 
 	glClearColor(.7f, .7f, .7f, 1.0f);
 
-	glLineWidth(2);
-
-	setSelf(s);
-	
-	/*
-	new SkyBox(self);
-	new Stars(self);
-	new Planet(self);
-	new Camera(self);
-	*/
-
-	/*
-	new Character(self);
-	new Nanosuit(self);
-	*/
-
-
 	//Testing audio
 	Audio audio;
 	audio.setListenerData();
 	int buffer = audio.loadSound("_resources/Audios/laser_bullet.wav");
 	AudioSource* source = new AudioSource;
 	source->playSound(buffer);
-
-
-
-
 	
 	string vertexPath = "_resources/Shaders/vertex1.frag";
 	string fragmentPath = "_resources/Shaders/fragment1.frag";
@@ -194,21 +196,24 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 		glEnableVertexAttribArray(0);
 		*/
 
-
-
-
-
-
-
-	//new Camera(self);
-	//new Character(self);
 	Scenario* scenario = new Scenario(self);
 	scenario->ReadScenario("_resources/Scenarios/scenario.txt");
+
+	Input* input = new Input();
 	
 	// Setting the loop functions
 	glutDisplayFunc(DrawCallback);
 
 	glutTimerFunc(int(1000/fps), UpdateCallback, 0);
+
+	glutKeyboardFunc(KeyboardPressCallback);
+	glutSpecialFunc(SpecialPressCallback);
+	glutJoystickFunc(GamepadPressCallback, 25);
+
+	glutKeyboardUpFunc(KeyboardReleaseCallback);
+	glutSpecialUpFunc(SpecialReleaseCallback);
+
+	glutIgnoreKeyRepeat(1);
 
 	glutMainLoop();
 
