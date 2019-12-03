@@ -106,9 +106,7 @@ public:
 		y = -6;
 	}
 
-	void Update() {
-		y_angle -= 0.001;
-	}
+	void Update();
 };
 
 class Nanosuit : public Entity {

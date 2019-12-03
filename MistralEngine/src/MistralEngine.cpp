@@ -39,6 +39,8 @@ MistralEngine::MistralEngine() {
 	// TIMER VARIABLES
 	t0 = chrono::high_resolution_clock::now();
 	CurrentTime = 0;
+
+	input = new Input();
 }
 
 unsigned int MistralEngine::EntitiesCount() {
@@ -76,14 +78,11 @@ void MistralEngine::GeneralDraw() {
 	glLoadIdentity();
 
 	gluPerspective(fov, AspectRatio, 0.01, 1000);
-	
-
 
 	// Camera Event
 	for (Entity* e : EntitiesList) {
 		e->CameraUpdate();
 	}
-
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
@@ -102,6 +101,9 @@ void MistralEngine::GeneralDraw() {
 	glutSwapBuffers();
 }
 void MistralEngine::GeneralUpdate(int value) {
+	// Update all the Input States
+	input->UpdateInputs();
+
 	// Draw all the entities
 	for (Entity* e : EntitiesList) {
 		e->Update();
@@ -112,12 +114,11 @@ void MistralEngine::GeneralUpdate(int value) {
 }
 
 void MistralEngine::GeneralPressKeyboard(unsigned char key, int x, int y) {
-	cout << toupper(key) << "	---	" << x << "	---	" << y << endl;
-	cout << (int)toupper(key) << endl;
+	input->KeyboardPressHandle(toupper(key));
 }
 
 void MistralEngine::GeneralPressSpecial( int key, int x, int y) {
-	cout << key << "	---	" << x << "	---	" << y << endl;
+	input->KeyboardPressHandle(key);
 }
 
 void MistralEngine::GeneralPressGamepad( unsigned int key, int x, int y, int z) {
@@ -125,11 +126,11 @@ void MistralEngine::GeneralPressGamepad( unsigned int key, int x, int y, int z) 
 }
 
 void MistralEngine::GeneralReleaseKeyboard(unsigned char key, int x, int y) {
-	cout << toupper(key) << "	---	" << x << "	---	" << y << endl;
+	input->KeyboardReleaseHandle(toupper(key));
 }
 
 void MistralEngine::GeneralReleaseSpecial(int key, int x, int y) {
-	cout << key << "	---	" << x << "	---	" << y << endl;
+	input->KeyboardReleaseHandle(key);
 }
 
 void GLAPIENTRY MessageCallback(GLenum source,GLenum type,GLuint id,GLenum severity,GLsizei length,const GLchar* message,const void* userParam)
@@ -198,8 +199,6 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 
 	Scenario* scenario = new Scenario(self);
 	scenario->ReadScenario("_resources/Scenarios/scenario.txt");
-
-	Input* input = new Input();
 	
 	// Setting the loop functions
 	glutDisplayFunc(DrawCallback);

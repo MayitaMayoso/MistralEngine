@@ -1,4 +1,5 @@
 #include "MistralEngine.h"
+#include "Input.h"
 #include "GameObjects.h"
 
 void Axis::Draw() {
@@ -58,7 +59,7 @@ void Camera::Create() {
 
 void Camera::CameraUpdate() {
 	// position, target, up
-	game->cameraView =  glm::lookAt(glm::vec3(0.5f, 0.4f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	game->cameraView =  glm::lookAt(glm::vec3(x, y, z), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 	//game->cameraView =  glm::lookAt(glm::vec3(x, y, z), glm::vec3(target->get_x(), target->get_y(), target->get_z()), glm::vec3(0.0f, 1.0f, 0.0f));
 	//gluLookAt(x, y, z, target->get_x(), target->get_y(), target->get_z(), 0, 1, 0);
 }
@@ -130,5 +131,34 @@ void Stars::Draw() {
 			glVertex3i(starsPos[i][0], starsPos[i][1], starsPos[i][2]);
 		}
 		glEnd();
+	}
+}
+
+void Character::Update() {
+	if (game->input->InputCheck("UP", InputState::HOLD)) {
+		y += 1;
+	}
+
+
+	if (game->input->InputCheck("DOWN", InputState::HOLD)) {
+		y -= 1;
+	}
+
+	if (game->input->InputCheck("RIGHT", InputState::HOLD)) {
+		x += 1;
+	}
+
+
+	if (game->input->InputCheck("LEFT", InputState::HOLD)) {
+		x -= 1;
+	}
+
+	if (game->input->InputCheck("FORWARD", InputState::HOLD)) {
+		z += 1;
+	}
+
+
+	if (game->input->InputCheck("BACKWARD", InputState::HOLD)) {
+		z -= 1;
 	}
 }

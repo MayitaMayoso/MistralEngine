@@ -51,7 +51,7 @@ void Entity::DrawSelf() {
 		
 		
 		GLfloat R = 1.0f, G = 1.0f, B = 1.0f;
-		GLfloat X = -10.0f, Y = 0.0f, Z = 0.0f;
+		GLfloat X = 0.0f, Y = 0.0f, Z = 0.0f;
 		GLfloat Strenght = 0.2f;
 		int SpecularStrenght = 32;
 
@@ -60,9 +60,7 @@ void Entity::DrawSelf() {
 		program.setFloat("intensity", Strenght);
 		program.setVec3("viewPos", 0, 0, 0); //posicion de la camara
 		program.setInt("specularintensity", SpecularStrenght);
-		
 
-		
 
 		// render the loaded model
 		glm::mat4 modelMat = glm::mat4(1.0f);

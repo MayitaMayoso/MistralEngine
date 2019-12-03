@@ -22,6 +22,8 @@ using namespace std;
 
 class Entity;
 
+class Input;
+
 class MistralEngine {
 public:
 	MistralEngine();
@@ -46,6 +48,7 @@ public:
 	unsigned int EntitiesCount();
 	list<Entity*> EntitiesList;
 	vector<pair<string, GLint>> programs;
+	Input* input;
 
 private:
 	void CalculateTime();

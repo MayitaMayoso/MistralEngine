@@ -1,9 +1,18 @@
 #include "Input.h"
 
+void Input::InitializeKeys() {
+
+	addInput("UP", { InputKey::ARROWUP, InputKey::W });
+	addInput("DOWN", { InputKey::ARROWDOWN, InputKey::S });
+	addInput("LEFT", { InputKey::ARROWLEFT, InputKey::A });
+	addInput("RIGHT", { InputKey::ARROWRIGHT, InputKey::D });
+	addInput("FORWARD", { InputKey::Q });
+	addInput("BACKWARD", { InputKey::E });
+}
+
 Input::Input() {
 
-	/*
-	KeyStates = {
+	keyStates = {
 		{ InputKey::A , false },
 		{ InputKey::B , false },
 		{ InputKey::C , false },
@@ -20,7 +29,7 @@ Input::Input() {
 		{ InputKey::N , false },
 		{ InputKey::O , false },
 		{ InputKey::P , false },
-		{ InputKey::K , false },
+		{ InputKey::Q , false },
 		{ InputKey::R , false },
 		{ InputKey::S , false },
 		{ InputKey::T , false },
@@ -47,6 +56,8 @@ Input::Input() {
 		{ InputKey::ARROWLEFT , false },
 		{ InputKey::ARROWDOWN , false },
 
+		{ InputKey::SPACE , false },
+
 		{ InputKey::F1 , false },
 		{ InputKey::F2 , false },
 		{ InputKey::F3 , false },
@@ -58,25 +69,74 @@ Input::Input() {
 		{ InputKey::F9 , false },
 		{ InputKey::F10 , false },
 		{ InputKey::F11 , false },
-		{ InputKey::F12 , false }
-	}
+		{ InputKey::F12 , false },
 
-	for (auto key : KeyStates) {
-		cout << key << endl;
-	}*/
+
+		{ InputKey::PAGEDOWN , false },
+		{ InputKey::PAGEUP , false },
+		{ InputKey::HOME , false },
+		{ InputKey::END , false },
+		{ InputKey::INSERT , false },
+	};
+
+	InitializeKeys();
 }
 
-/*
-void Input::UpdateInputs() {
-	for (InputItem i : InputVector) {
-		bool currentState = GeneralCheck(i);
-
-		if (currentState) {
-			i.pressed = !i.hold;
-			i.hold = true;
-		} else {
-			i.released = !i.hold;
-			i.hold = false;
-		}
+void Input::KeyboardPressHandle(int key) {
+	if (keyStates.find(key) != keyStates.end()) {
+		keyStates.at(key) = true;
 	}
-*/
+}
+
+void Input::KeyboardReleaseHandle(int key) {
+	if (keyStates.find(key) != keyStates.end()) {
+		keyStates.at(key) = false;
+	}
+}
+
+void Input::addInput( string key, list<int> keymap) {
+	InputItem it;
+	it.keymap = keymap;
+	inputList.insert(pair<string, InputItem>(key, it));
+}
+
+void Input::UpdateInputs() {
+	for (auto currI : inputList) {
+		bool currentState = false;
+		for (auto k : currI.second.keymap) {
+			if (keyStates.at(k)) {
+				currentState = true;
+			}
+		}
+
+		if (currentState && !currI.second.hold) {
+			inputList.at(currI.first).pressed = true;
+		}else {
+			if (!currentState && currI.second.hold) {
+				inputList.at(currI.first).released = true;
+			} else {
+				inputList.at(currI.first).pressed = false;
+				inputList.at(currI.first).released = false;
+			}
+		}
+
+		inputList.at(currI.first).hold = currentState;
+	}
+}
+
+bool Input::InputCheck(string input, int state) {
+	switch (state) {
+		case InputState::PRESSED:
+			return inputList.at(input).pressed;
+			break;
+		case InputState::RELEASED:
+			return inputList.at(input).released;
+			break;
+		case InputState::HOLD:
+			return inputList.at(input).hold;
+			break;
+		default:
+			return false;
+			break;
+	}
+}
