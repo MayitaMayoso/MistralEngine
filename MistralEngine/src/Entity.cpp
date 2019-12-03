@@ -37,9 +37,21 @@ void Entity::DrawSelf() {
 	if (visible) {
 		program.use();
 		
+		/*
+		unsigned int VBO = NULL;
+		unsigned int lightVAO;
+		glGenVertexArrays(1, &lightVAO);
+		glBindVertexArray(lightVAO);
+		// we only need to bind to the VBO, the container's VBO's data already contains the correct data.
+		glBindBuffer(GL_ARRAY_BUFFER, VBO);
+		// set the vertex attributes (only position data for our lamp)
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+		glEnableVertexAttribArray(0);
+		*/
+		
 		
 		GLfloat R = 1.0f, G = 1.0f, B = 1.0f;
-		GLfloat X = 0.0f, Y = 0.0f, Z = -7.0f;
+		GLfloat X = -10.0f, Y = 0.0f, Z = 0.0f;
 		GLfloat Strenght = 0.2f;
 		int SpecularStrenght = 32;
 
@@ -66,9 +78,12 @@ void Entity::DrawSelf() {
 		glProgramUniformMatrix4fv(program.getId(), glGetUniformLocation(program.getId(), name.c_str()), 1, GL_FALSE, &modelMat[0][0]);
 		glProgramUniformMatrix4fv(program.getId(), glGetUniformLocation(program.getId(), nameCamera.c_str()), 1, GL_FALSE, &game->cameraView[0][0]);
 
+		
+		
 
 
 		model.Draw(program.getId());
+
 	}
 }
 

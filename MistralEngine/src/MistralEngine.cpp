@@ -182,15 +182,17 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	programs.push_back(make_pair("model", Program(vertexPath.c_str(), fragmentPath.c_str()).getId()));
 
 
-	unsigned int VBO = NULL;
-	unsigned int lightVAO;
-	glGenVertexArrays(1, &lightVAO);
-	glBindVertexArray(lightVAO);
-	// we only need to bind to the VBO, the container's VBO's data already contains the correct data.
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	// set the vertex attributes (only position data for our lamp)
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(0);
+	/*
+		unsigned int VBO = NULL;
+		unsigned int lightVAO;
+		glGenVertexArrays(1, &lightVAO);
+		glBindVertexArray(lightVAO);
+		// we only need to bind to the VBO, the container's VBO's data already contains the correct data.
+		glBindBuffer(GL_ARRAY_BUFFER, VBO);
+		// set the vertex attributes (only position data for our lamp)
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+		glEnableVertexAttribArray(0);
+		*/
 
 
 
@@ -199,7 +201,7 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 
 
 	//new Camera(self);
-
+	//new Character(self);
 	Scenario* scenario = new Scenario(self);
 	scenario->ReadScenario("_resources/Scenarios/scenario.txt");
 	

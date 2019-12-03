@@ -126,7 +126,8 @@ public:
 	}
 
 	void Update() {
-		z += 0.02f;
+		y -= 0.02f;
+		y_angle -= 0.002f;
 	}
 };
 
