@@ -135,6 +135,9 @@ void Stars::Draw() {
 }
 
 void Character::Update() {
+
+	
+	
 	if (game->input->InputCheck("UP", InputState::HOLD)) {
 		y += 1;
 	}

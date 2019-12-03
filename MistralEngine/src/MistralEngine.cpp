@@ -5,6 +5,7 @@
 #include "Audio.h"
 #include "AudioSource.h"
 #include "Input.h"
+#include "Light.h"
 
 #include <GL/glew.h>
 #include <GL/glut.h>
@@ -171,7 +172,21 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	glDepthFunc(GL_LESS);
 	glDepthRange(0.0f, 1.0f);
 
-	glClearColor(.7f, .7f, .7f, 1.0f);
+	glClearColor(.0f, .0f, .0f, 1.0f);
+
+
+
+	lightscene = new Light(self);
+
+	lightscene->SetR(1.0f);
+	lightscene->SetG(1.0f);
+	lightscene->SetB(1.0f);
+	lightscene->SetX(0.0f);
+	lightscene->SetY(10.0f);
+	lightscene->SetZ(-20.0f);
+	lightscene->SetStrenght(0.4f);
+	lightscene->SetSpecularStrenght(32);
+
 
 	//Testing audio
 	Audio audio;

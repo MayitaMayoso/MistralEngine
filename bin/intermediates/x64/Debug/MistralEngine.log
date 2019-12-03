@@ -1,13 +1,15 @@
 ﻿  Audio.cpp
   Entity.cpp
-C:\Users\Marc\Desktop\VGI\MistralEngine\src\Audio.cpp(1,10): fatal error C1083: No se puede abrir el archivo incluir: 'Audio.h': No such file or directory
+C:\Users\Marc\Desktop\VIGa\MistralEngine\src\Audio.cpp(1,10): fatal error C1083: No se puede abrir el archivo incluir: 'Audio.h': No such file or directory
   GameObjects.cpp
-C:\Users\Marc\Desktop\VGI\MistralEngine\src\Entity.cpp(1,10): fatal error C1083: No se puede abrir el archivo incluir: 'MistralEngine.h': No such file or directory
+C:\Users\Marc\Desktop\VIGa\MistralEngine\src\Entity.cpp(1,10): fatal error C1083: No se puede abrir el archivo incluir: 'MistralEngine.h': No such file or directory
+  Input.cpp
+C:\Users\Marc\Desktop\VIGa\MistralEngine\src\GameObjects.cpp(1,10): fatal error C1083: No se puede abrir el archivo incluir: 'MistralEngine.h': No such file or directory
   MistralEngine.cpp
-C:\Users\Marc\Desktop\VGI\MistralEngine\src\GameObjects.cpp(1,10): fatal error C1083: No se puede abrir el archivo incluir: 'MistralEngine.h': No such file or directory
+C:\Users\Marc\Desktop\VIGa\MistralEngine\src\Input.cpp(1,10): fatal error C1083: No se puede abrir el archivo incluir: 'Input.h': No such file or directory
   Program.cpp
-C:\Users\Marc\Desktop\VGI\MistralEngine\src\MistralEngine.cpp(2,10): fatal error C1083: No se puede abrir el archivo incluir: 'GameObjects.h': No such file or directory
+C:\Users\Marc\Desktop\VIGa\MistralEngine\src\MistralEngine.cpp(2,10): fatal error C1083: No se puede abrir el archivo incluir: 'GameObjects.h': No such file or directory
   Scenario.cpp
-C:\Users\Marc\Desktop\VGI\MistralEngine\src\Program.cpp(1,10): fatal error C1083: No se puede abrir el archivo incluir: 'Program.h': No such file or directory
+C:\Users\Marc\Desktop\VIGa\MistralEngine\src\Program.cpp(1,10): fatal error C1083: No se puede abrir el archivo incluir: 'Program.h': No such file or directory
   Generando código...
-C:\Users\Marc\Desktop\VGI\MistralEngine\include\MistralEngine.h(7,10): fatal error C1083: No se puede abrir el archivo incluir: 'GL/glew.h': No such file or directory
+C:\Users\Marc\Desktop\VIGa\MistralEngine\include\MistralEngine.h(7,10): fatal error C1083: No se puede abrir el archivo incluir: 'GL/glew.h': No such file or directory

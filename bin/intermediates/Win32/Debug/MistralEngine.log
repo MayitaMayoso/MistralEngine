@@ -1,2 +1,3 @@
-﻿  MistralEngine.cpp
-  MistralEngine.vcxproj -> C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Debug\MistralEngine.exe
+﻿  GameObjects.cpp
+C:\Users\Marc\Desktop\VIGa\MistralEngine\src\GameObjects.cpp(97,16): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
+  MistralEngine.vcxproj -> C:\Users\Marc\Desktop\VIGa\bin\Win32\Debug\MistralEngine.exe

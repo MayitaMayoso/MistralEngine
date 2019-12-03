@@ -1,5 +1,6 @@
 #include "MistralEngine.h"
 #include "Entity.h"
+#include "Light.h"
 
 
 using namespace std;
@@ -50,16 +51,11 @@ void Entity::DrawSelf() {
 		*/
 		
 		
-		GLfloat R = 1.0f, G = 1.0f, B = 1.0f;
-		GLfloat X = 0.0f, Y = 0.0f, Z = 0.0f;
-		GLfloat Strenght = 0.2f;
-		int SpecularStrenght = 32;
-
-		program.setVec3("lightColor", R, G, B);
-		program.setVec3("lightPos", X, Y, Z);
-		program.setFloat("intensity", Strenght);
+		program.setVec3("lightColor",game->lightscene->getR() , game->lightscene->getG(), game->lightscene->getB());
+		program.setVec3("lightPos", game->lightscene->getX(), game->lightscene->getY(), game->lightscene->getZ());
+		program.setFloat("intensity", game->lightscene->getStrenght());
 		program.setVec3("viewPos", 0, 0, 0); //posicion de la camara
-		program.setInt("specularintensity", SpecularStrenght);
+		program.setInt("specularintensity", game->lightscene->getSpecularStrenght());
 
 
 		// render the loaded model
@@ -70,11 +66,21 @@ void Entity::DrawSelf() {
 		modelMat = glm::rotate(modelMat, glm::degrees(z_angle), glm::vec3(0.0f, 0.0f, 1.0f));
 		modelMat = glm::translate(modelMat, glm::vec3(x, y, z)); // translate it down so it's at the center of the scene
 		modelMat = glm::translate(modelMat, glm::vec3(x_origin, y_origin, z_origin)); // translate it down so it's at the center of the scene
+
+		glm::mat4 view = glm::mat4(1.0f);
+		// note that we're translating the scene in the reverse direction of where we want to move
+		view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+		glm::mat4 projection;
+		projection = glm::perspective(glm::radians(45.0f), 1080.0f/ 720.0f, 0.1f, 100.0f);
+
 		
 		const std::string& name = "model";
 		const std::string& nameCamera = "view";
+		const std::string& nameZ = "projection";
+
 		glProgramUniformMatrix4fv(program.getId(), glGetUniformLocation(program.getId(), name.c_str()), 1, GL_FALSE, &modelMat[0][0]);
 		glProgramUniformMatrix4fv(program.getId(), glGetUniformLocation(program.getId(), nameCamera.c_str()), 1, GL_FALSE, &game->cameraView[0][0]);
+		glProgramUniformMatrix4fv(program.getId(), glGetUniformLocation(program.getId(), nameZ.c_str()), 1, GL_FALSE, &projection[0][0]);
 
 		
 		

@@ -22,6 +22,8 @@ using namespace std;
 
 class Entity;
 
+class Light;
+
 class Input;
 
 class MistralEngine {
@@ -45,6 +47,7 @@ public:
 	chrono::high_resolution_clock::time_point t0;
 	int CurrentTime;
 
+	Light* lightscene;
 	unsigned int EntitiesCount();
 	list<Entity*> EntitiesList;
 	vector<pair<string, GLint>> programs;
