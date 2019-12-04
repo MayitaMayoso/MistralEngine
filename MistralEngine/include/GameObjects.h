@@ -52,7 +52,11 @@ public:
 	Planet(MistralEngine* g) : Entity(g) { Create(); };
 
 	void Create() {
+
 		LoadModel("moon/moon.obj");
+		x_scale = 0.8f;
+		y_scale = 0.8f;
+		z_scale = 0.8f;
 	}
 };
 
