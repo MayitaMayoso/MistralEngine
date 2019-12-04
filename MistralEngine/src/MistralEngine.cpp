@@ -174,8 +174,6 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 
 	glClearColor(.0f, .0f, .0f, 1.0f);
 
-
-
 	lightscene = new Light(self);
 
 	lightscene->SetR(1.0f);
@@ -184,8 +182,8 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	lightscene->SetX(0.0f);
 	lightscene->SetY(10.0f);
 	lightscene->SetZ(-20.0f);
-	lightscene->SetStrenght(0.4f);
-	lightscene->SetSpecularStrenght(32);
+	lightscene->SetStrenght(0.8f);
+	lightscene->SetSpecularStrenght(50);
 
 
 	//Testing audio
@@ -193,24 +191,11 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	audio.setListenerData();
 	int buffer = audio.loadSound("_resources/Audios/laser_bullet.wav");
 	AudioSource* source = new AudioSource;
-	source->playSound(buffer);
 	
 	string vertexPath = "_resources/Shaders/vertex1.frag";
 	string fragmentPath = "_resources/Shaders/fragment1.frag";
 	programs.push_back(make_pair("model", Program(vertexPath.c_str(), fragmentPath.c_str()).getId()));
 
-
-	/*
-		unsigned int VBO = NULL;
-		unsigned int lightVAO;
-		glGenVertexArrays(1, &lightVAO);
-		glBindVertexArray(lightVAO);
-		// we only need to bind to the VBO, the container's VBO's data already contains the correct data.
-		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		// set the vertex attributes (only position data for our lamp)
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-		glEnableVertexAttribArray(0);
-		*/
 
 	Scenario* scenario = new Scenario(self);
 	scenario->ReadScenario("_resources/Scenarios/scenario.txt");

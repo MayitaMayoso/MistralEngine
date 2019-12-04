@@ -33,6 +33,7 @@
     <ClInclude Include="include\Entity.h" />
     <ClInclude Include="include\GameObjects.h" />
     <ClInclude Include="include\Input.h" />
+    <ClInclude Include="include\Light.h" />
     <ClInclude Include="include\Mesh.h" />
     <ClInclude Include="include\MistralEngine.h" />
     <ClInclude Include="include\Model.h" />

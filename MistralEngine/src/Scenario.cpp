@@ -37,38 +37,9 @@ void Scenario::ReadScenario(string path)
 				{
 					z = std::stof(aux);
 
-					if (object == "Axis")
-					{
-						Axis* p = new Axis(m_game);
-						p->set_position(x, y, z);
-					}
-
-					if (object == "SpaceShip")
-					{
-						SpaceShip* p = new SpaceShip(m_game);
-						p->set_position(x, y, z);
-					}
-					if (object == "SkyBox")
-					{
-						SkyBox* p = new SkyBox(m_game);
-						p->set_position(x, y, z);
-					}
-
 					if (object == "Character")
 					{
 						Character* p = new Character(m_game);
-						p->set_position(x, y, z);
-					}
-
-					if (object == "Nanosuit")
-					{
-						Nanosuit* p = new Nanosuit(m_game);
-						p->set_position(x, y, z);
-					}
-
-					if (object == "Stars")
-					{
-						Stars* p = new Stars(m_game);
 						p->set_position(x, y, z);
 					}
 
@@ -81,6 +52,12 @@ void Scenario::ReadScenario(string path)
 					if (object == "Planet")
 					{
 						Planet* p = new Planet(m_game);
+						p->set_position(x, y, z);
+					}
+
+					if (object == "Nanosuit")
+					{
+						Nanosuit* p = new Nanosuit(m_game);
 						p->set_position(x, y, z);
 					}
 
