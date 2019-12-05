@@ -1,6 +1,9 @@
 ﻿  Entity.cpp
   GameObjects.cpp
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(51,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(51,74): warning C4305: 'argument': truncation from 'double' to 'float'
   MistralEngine.cpp
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(51,94): warning C4305: 'argument': truncation from 'double' to 'float'
   Scenario.cpp
   Generating Code...
 C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244: '=': conversion from 'genType' to 'int', possible loss of data

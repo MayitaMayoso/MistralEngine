@@ -15,16 +15,16 @@ public:
 	Character(MistralEngine* g) : Entity(g) { Create(); };
 
 	void Create() {
-		LoadModel("link/pose.obj");
+		LoadModel("aircraft/aircraft.obj");
 		//y_origin = -8.0f;
-		x_scale = 0.05f;
-		y_scale = 0.05f;
-		z_scale = 0.05f;
+		x_scale = 0.4f;
+		y_scale = 0.4f;
+		z_scale = 0.4f;
 	}
 
 	void Update();
 
-	float max_spd = 0.08f;
+	float max_spd = 0.2f;
 	float max_rspd = 1.0f;
 	float x_spd = 0.0f;
 	float y_spd = 0.0f;
@@ -33,7 +33,7 @@ public:
 	float ry_spd = 0.0f;
 	float rz_spd = 0.0f;
 	float spd = 0.0f;
-	float acceleration = 0.1f;
+	float acceleration = 0.01f;
 };
 
 class Planet : public Entity {
@@ -44,9 +44,6 @@ public:
 	void Create() {
 
 		LoadModel("moon/moon.obj");
-		x_scale = 0.8f;
-		y_scale = 0.8f;
-		z_scale = 0.8f;
 	}
 
 	void Update();
@@ -58,8 +55,20 @@ public:
 	Nanosuit(MistralEngine* g) : Entity(g) { Create(); };
 
 	void Create() {
-		LoadModel("nanosuit/nanosuit.obj");
+		LoadModel("link/pose.obj");
 	}
 };
+
+/*
+class Spaceship : public Entity {
+public:
+
+	Spaceship(MistralEngine* g) : Entity(g) { Create(); };
+
+	void Create() {
+		LoadModel("aircraft/aircraft.obj");
+	}
+};
+*/
 
 #endif

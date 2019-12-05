@@ -16,7 +16,7 @@ public:
 	void pan(float pan_factorX, float pan_factorY, float pan_factorZ);
 	void rotate(glm::vec3 rotation_center, float angle_X_inc, float angle_Y_inc);
 
-	glm::vec3 position = glm::vec3(0.0f, 0.0f, 4.0f);
+	glm::vec3 position = glm::vec3(0.0f, 1.0f, 5.0f);
 	glm::vec3 lookat = glm::vec3(0.0f, 0.0f, 0.0f);
 
 	glm::vec3 front = glm::vec3(0.0f, 0.0f, -1.0f);

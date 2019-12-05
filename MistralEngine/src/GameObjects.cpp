@@ -19,40 +19,41 @@ float lerp(float a, float b, float amount) {
 
 
 void Character::Update() {
-	int h_input = (int)game->input->InputCheck("LEFT", InputState::HOLD) - (int)game->input->InputCheck("RIGHT", InputState::HOLD);
+	int r_input = (int)game->input->InputCheck("LEFT", InputState::HOLD) - (int)game->input->InputCheck("RIGHT", InputState::HOLD);
 	int f_input = (int)game->input->InputCheck("BACKWARD", InputState::HOLD) - (int)game->input->InputCheck("FORWARD", InputState::HOLD);
-	int m_input = (int)game->input->InputCheck("UP", InputState::HOLD) - (int)game->input->InputCheck("DOWN", InputState::HOLD);
+	int v_input = (int)game->input->InputCheck("UP", InputState::HOLD) - (int)game->input->InputCheck("DOWN", InputState::HOLD);
 
-	ry_spd = lerp(ry_spd, max_rspd * h_input, acceleration);
-	rx_spd = lerp(rx_spd, max_rspd * f_input, acceleration);
-	spd = lerp(spd, max_spd * m_input, acceleration);
+	ry_spd = lerp(ry_spd, max_rspd * r_input, acceleration);
 
-	//spd = lerp(spd, max_spd * f_input, acceleration);
+	y_spd = lerp(y_spd, max_spd * v_input, acceleration);
+	spd = lerp(spd, max_spd * f_input, acceleration);
 
 	y_angle += ry_spd;
-	x_angle += rx_spd;
+	//x_angle += rx_spd;
 
-	x_spd = spd * game->camera->front[0];
-	y_spd = spd * game->camera->front[1];
-	z_spd = spd * game->camera->front[2];
-
-	cout << game->camera->front[0] << endl;
+	x_spd = spd * sin(glm::radians(y_angle));
+	z_spd = spd * cos(glm::radians(y_angle));
 
 	x += x_spd;
 	y += y_spd;
 	z += z_spd;
 
-	game->camera->rotate(glm::vec3(x, y, z), ry_spd, rx_spd);
-	game->camera->position += glm::vec3(x_spd, y_spd, z_spd);
+	game->camera->lookat = glm::vec3(x, y + 1.0f, z);
 
-	glm::mat4 origin = glm::mat4(1.0f);
-	glm::mat4 localAxis = glm::mat4(1.0f);
+	float radius = 5.0f;
+	float ncx = x + radius * sin(glm::radians(y_angle));
+	float ncy = y + 1;
+	float ncz = z + radius * cos(glm::radians(y_angle));
+	float cx = game->camera->position[0];
+	float cy = game->camera->position[1];
+	float cz = game->camera->position[2];
 
-	origin = glm::rotate(origin, glm::radians(x_angle), glm::vec3(localAxis[0]));
-	origin = glm::rotate(origin, glm::radians(y_angle), glm::vec3(localAxis[1]));
-	origin = glm::rotate(origin, glm::radians(z_angle), glm::vec3(localAxis[2]));
+	game->camera->position = glm::vec3(lerp(cx, ncx, 0.1), lerp(cy, ncy, 0.1), lerp(cz, ncz, 0.1));
 
-	game->camera->lookat = glm::vec3(x, y, z);
+	// generate view matrix
+	game->cameraView = glm::lookAt(game->camera->position, game->camera->lookat, glm::vec3(0.0f, 1.0f, 0.0f));
+
+	
 }
 
 void Planet::Update() {
