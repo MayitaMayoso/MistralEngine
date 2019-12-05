@@ -21,9 +21,6 @@ class Entity {
 
 		virtual void Create() {};
 		virtual void Update() {}; // This method is called in the Timer Function of the main loop.
-		virtual void Draw() {}; // This method is called on the Display Function of the main loop.
-		virtual void DrawGUI() {}; // Currently not availabl  e.
-		virtual void CameraUpdate() {};
 
 		virtual void LoadModel( string modelPath);
 

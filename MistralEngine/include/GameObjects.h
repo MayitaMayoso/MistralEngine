@@ -25,26 +25,16 @@ public:
 	void Update();
 
 	float max_spd = 0.08f;
+	float max_rspd = 1.0f;
 	float x_spd = 0.0f;
 	float y_spd = 0.0f;
 	float z_spd = 0.0f;
+	float rx_spd = 0.0f;
+	float ry_spd = 0.0f;
+	float rz_spd = 0.0f;
+	float spd = 0.0f;
 	float acceleration = 0.1f;
 };
-
-class Camera : public Entity {
-public:
-	Camera(MistralEngine* g) : Entity(g) { Create(); };
-
-	void Create();
-
-	void Update();
-
-	Entity* target;
-	float spd = 0.002f;
-	float dist = 5.0f;
-	float tx = 0, ty = 0, tz = 0;
-};
-
 
 class Planet : public Entity {
 public:
@@ -58,8 +48,9 @@ public:
 		y_scale = 0.8f;
 		z_scale = 0.8f;
 	}
-};
 
+	void Update();
+};
 
 class Nanosuit : public Entity {
 public:

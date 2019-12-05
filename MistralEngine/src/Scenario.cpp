@@ -43,12 +43,6 @@ void Scenario::ReadScenario(string path)
 						p->set_position(x, y, z);
 					}
 
-					if (object == "Camera")
-					{
-						Camera* p = new Camera(m_game);
-						p->set_position(x, y, z);
-					}
-
 					if (object == "Planet")
 					{
 						Planet* p = new Planet(m_game);

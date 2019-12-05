@@ -6,6 +6,7 @@
 #include "AudioSource.h"
 #include "Input.h"
 #include "Light.h"
+#include "Camera.h"
 
 #include <GL/glew.h>
 #include <GL/glut.h>
@@ -34,7 +35,7 @@ MistralEngine::MistralEngine() {
 	width = 1280;
 	height = 720;
 	AspectRatio = float(width) / float(height);
-	fov = 50;
+	fov = glm::radians(50.0f);
 	fps = 60;
 
 	// TIMER VARIABLES
@@ -80,11 +81,6 @@ void MistralEngine::GeneralDraw() {
 
 	gluPerspective(fov, AspectRatio, 0.01, 1000);
 
-	// Camera Event
-	for (Entity* e : EntitiesList) {
-		e->CameraUpdate();
-	}
-
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
@@ -92,23 +88,19 @@ void MistralEngine::GeneralDraw() {
 	for (Entity* e : EntitiesList) {
 		e->DrawSelf();
 	}
-	
-	// Draw all the entities
-	for (Entity* e : EntitiesList) {
-		e->Draw();
-		//cout << "Drawing: " << e->get_id() << endl;
-	}
 
 	glutSwapBuffers();
 }
 void MistralEngine::GeneralUpdate(int value) {
 	// Update all the Input States
 	input->UpdateInputs();
+	//camera->UpdateCamera();
 
 	// Draw all the entities
 	for (Entity* e : EntitiesList) {
 		e->Update();
 	}
+
 	CalculateTime();
 	glutTimerFunc(1000 / fps, UpdateCallback, 0);
 	glutPostRedisplay();
@@ -200,6 +192,8 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	Scenario* scenario = new Scenario(self);
 	scenario->ReadScenario("_resources/Scenarios/scenario.txt");
 	
+	camera = new Camera(self);
+
 	// Setting the loop functions
 	glutDisplayFunc(DrawCallback);
 

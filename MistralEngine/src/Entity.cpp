@@ -36,20 +36,7 @@ Entity::Entity(MistralEngine* g) {
 
 void Entity::DrawSelf() {
 	if (visible) {
-		program.use();
-		
-		/*
-		unsigned int VBO = NULL;
-		unsigned int lightVAO;
-		glGenVertexArrays(1, &lightVAO);
-		glBindVertexArray(lightVAO);
-		// we only need to bind to the VBO, the container's VBO's data already contains the correct data.
-		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		// set the vertex attributes (only position data for our lamp)
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-		glEnableVertexAttribArray(0);
-		*/
-		
+		program.use();	
 		
 		program.setVec3("lightColor",game->lightscene->getR() , game->lightscene->getG(), game->lightscene->getB());
 		program.setVec3("lightPos", game->lightscene->getX(), game->lightscene->getY(), game->lightscene->getZ());
@@ -61,12 +48,20 @@ void Entity::DrawSelf() {
 		// render the loaded model
 		glm::mat4 modelMat = glm::mat4(1.0f);
 
+		glm::mat4 localAxis = glm::mat4(1.0f);
 
 		modelMat = glm::translate(modelMat, glm::vec3(x_origin, y_origin, z_origin)); // translate it down so it's at the center of the scene
 		modelMat = glm::translate(modelMat, glm::vec3(x, y, z)); // translate it down so it's at the center of the scene
-		modelMat = glm::rotate(modelMat, glm::degrees(x_angle), glm::vec3(1.0f, 0.0f, 0.0f));
-		modelMat = glm::rotate(modelMat, glm::degrees(y_angle), glm::vec3(0.0f, 1.0f, 0.0f));
-		modelMat = glm::rotate(modelMat, glm::degrees(z_angle), glm::vec3(0.0f, 0.0f, 1.0f));
+
+		/*
+		localAxis = glm::rotate(localAxis, glm::radians(x_angle), glm::vec3(1.0f, 0.0f, 0.0f));
+		localAxis = glm::rotate(localAxis, glm::radians(y_angle), glm::vec3(0.0f, 1.0f, 0.0f));
+		localAxis = glm::rotate(localAxis, glm::radians(z_angle), glm::vec3(0.0f, 0.0f, 1.0f));*/
+
+		modelMat = glm::rotate(modelMat, glm::radians(x_angle), glm::vec3(localAxis[0]));
+		modelMat = glm::rotate(modelMat, glm::radians(y_angle), glm::vec3(localAxis[1]));
+		modelMat = glm::rotate(modelMat, glm::radians(z_angle), glm::vec3(localAxis[2]));
+
 		modelMat = glm::scale(modelMat, glm::vec3(x_scale, y_scale, z_scale));	// it's a bit too big for our scene, so scale it down
 
 		glm::mat4 view = glm::mat4(1.0f);
@@ -84,12 +79,7 @@ void Entity::DrawSelf() {
 		glProgramUniformMatrix4fv(program.getId(), glGetUniformLocation(program.getId(), nameCamera.c_str()), 1, GL_FALSE, &game->cameraView[0][0]);
 		glProgramUniformMatrix4fv(program.getId(), glGetUniformLocation(program.getId(), nameZ.c_str()), 1, GL_FALSE, &projection[0][0]);
 
-		
-		
-
-
 		model.Draw(program.getId());
-
 	}
 }
 

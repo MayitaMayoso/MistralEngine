@@ -26,6 +26,8 @@ class Light;
 
 class Input;
 
+class Camera;
+
 class MistralEngine {
 public:
 	MistralEngine();
@@ -52,6 +54,7 @@ public:
 	list<Entity*> EntitiesList;
 	vector<pair<string, GLint>> programs;
 	Input* input;
+	Camera* camera;
 
 private:
 	void CalculateTime();

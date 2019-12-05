@@ -2,12 +2,12 @@
 
 void Input::InitializeKeys() {
 
-	addInput("UP", { InputKey::ARROWUP, InputKey::W });
-	addInput("DOWN", { InputKey::ARROWDOWN, InputKey::S });
+	addInput("FORWARD", { InputKey::ARROWUP, InputKey::W });
+	addInput("BACKWARD", { InputKey::ARROWDOWN, InputKey::S });
 	addInput("LEFT", { InputKey::ARROWLEFT, InputKey::A });
 	addInput("RIGHT", { InputKey::ARROWRIGHT, InputKey::D });
-	addInput("FORWARD", { InputKey::Q });
-	addInput("BACKWARD", { InputKey::E });
+	addInput("UP", { InputKey::Q });
+	addInput("DOWN", { InputKey::E });
 }
 
 Input::Input() {
