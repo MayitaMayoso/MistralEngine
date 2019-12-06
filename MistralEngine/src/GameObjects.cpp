@@ -61,3 +61,44 @@ void Planet::Update() {
 	y = game->camera->position[1];
 	z = game->camera->position[2];
 }
+
+void Universe::Update() {
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	program.use();
+
+	static const GLfloat black[] = { 0.0f, 0.0f, 0.0f, 0.0f };
+	static const GLfloat one[] = { 1.0f };
+	glm::mat4 proj_matrix = glm::perspective(50.0f,
+		(float)game->width / (float)game->height, 0.1f, 1000.0f);
+	
+	t = (float)game->CurrentTime;
+
+	if (game->input->InputCheck("FORWARD", InputState::HOLD) || game->input->InputCheck("BACKWARD", InputState::HOLD))
+		t *= 0.005f;
+	else
+		t *= 0.0001f;
+
+	t -= floor(t);
+
+	//game->CurrentTime
+
+	glViewport(0, 0, game->width, game->height);
+	glClearBufferfv(GL_COLOR, 0, black);
+	glClearBufferfv(GL_DEPTH, 0, one);
+
+	glBindTexture(GL_TEXTURE_2D, star_texture);
+
+
+	program.setFloat("time", t);
+	program.setMat4("proj_matrix", proj_matrix);
+
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_ONE, GL_ONE);
+
+	glBindVertexArray(star_vao);
+
+
+	glEnable(GL_PROGRAM_POINT_SIZE);
+	glDrawArrays(GL_POINTS, 0, NUM_STARS);
+
+}

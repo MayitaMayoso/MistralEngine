@@ -73,7 +73,7 @@ void MistralEngine::CalculateTime() {
 void MistralEngine::GeneralDraw() {
 
 	glClearDepth(1.0f);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glViewport(0, 0, width, height);
 
 	glMatrixMode(GL_PROJECTION);
@@ -174,7 +174,7 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	lightscene->SetX(0.0f);
 	lightscene->SetY(10.0f);
 	lightscene->SetZ(-20.0f);
-	lightscene->SetStrenght(0.8f);
+	lightscene->SetStrenght(0.3f);
 	lightscene->SetSpecularStrenght(50);
 
 
@@ -187,6 +187,8 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	string vertexPath = "_resources/Shaders/vertex1.frag";
 	string fragmentPath = "_resources/Shaders/fragment1.frag";
 	programs.push_back(make_pair("model", Program(vertexPath.c_str(), fragmentPath.c_str()).getId()));
+
+	new Universe(self);
 
 
 	Scenario* scenario = new Scenario(self);

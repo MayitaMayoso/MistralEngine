@@ -1,14 +1,7 @@
-﻿  Entity.cpp
-  GameObjects.cpp
-C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(51,54): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(51,74): warning C4305: 'argument': truncation from 'double' to 'float'
-  MistralEngine.cpp
-C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(51,94): warning C4305: 'argument': truncation from 'double' to 'float'
-  Scenario.cpp
-  Generating Code...
-C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244: '=': conversion from 'genType' to 'int', possible loss of data
-C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:         with
-C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:         [
-C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:             genType=float
-C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:         ]
-  MistralEngine.vcxproj -> C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Debug\MistralEngine.exe
+﻿  MistralEngine.cpp
+C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralLast\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244: '=': conversión de 'genType' a 'int'; posible pérdida de datos
+C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralLast\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:         with
+C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralLast\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:         [
+C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralLast\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:             genType=float
+C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralLast\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:         ]
+  MistralEngine.vcxproj -> C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralLast\MistralEngine\bin\Win32\Debug\MistralEngine.exe
