@@ -158,6 +158,8 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	}
 
 	glEnable(GL_DEPTH_TEST);
+	
+	
 	//glEnable(GL_DEBUG_OUTPUT);
 	//glDebugMessageCallback(MessageCallback, 0);
 	glDepthMask(GL_TRUE);
@@ -172,10 +174,10 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	lightscene->SetG(1.0f);
 	lightscene->SetB(1.0f);
 	lightscene->SetX(0.0f);
-	lightscene->SetY(10.0f);
-	lightscene->SetZ(-20.0f);
-	lightscene->SetStrenght(0.3f);
-	lightscene->SetSpecularStrenght(50);
+	lightscene->SetY(0.0f);
+	lightscene->SetZ(0.0f);
+	lightscene->SetStrenght(1.0f);
+	lightscene->SetSpecularStrenght(64);
 
 
 	//Testing audio

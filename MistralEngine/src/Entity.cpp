@@ -1,6 +1,7 @@
 #include "MistralEngine.h"
 #include "Entity.h"
 #include "Light.h"
+#include "Camera.h"
 
 
 using namespace std;
@@ -38,10 +39,11 @@ void Entity::DrawSelf() {
 	if (visible) {
 		program.use();	
 		
+		
 		program.setVec3("lightColor",game->lightscene->getR() , game->lightscene->getG(), game->lightscene->getB());
 		program.setVec3("lightPos", game->lightscene->getX(), game->lightscene->getY(), game->lightscene->getZ());
 		program.setFloat("intensity", game->lightscene->getStrenght());
-		program.setVec3("viewPos", 0, 0, 0); //posicion de la camara
+		program.setVec3("viewPos", game->camera->position); //posicion de la camara
 		program.setInt("specularintensity", game->lightscene->getSpecularStrenght());
 
 

@@ -1,7 +1,7 @@
 ﻿  MistralEngine.cpp
-C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralLast\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244: '=': conversión de 'genType' a 'int'; posible pérdida de datos
-C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralLast\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:         with
-C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralLast\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:         [
-C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralLast\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:             genType=float
-C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralLast\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:         ]
-  MistralEngine.vcxproj -> C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralLast\MistralEngine\bin\Win32\Debug\MistralEngine.exe
+C:\Users\Marc\Desktop\VIGa\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244: '=': conversión de 'genType' a 'int'; posible pérdida de datos
+C:\Users\Marc\Desktop\VIGa\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:         with
+C:\Users\Marc\Desktop\VIGa\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:         [
+C:\Users\Marc\Desktop\VIGa\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:             genType=float
+C:\Users\Marc\Desktop\VIGa\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:         ]
+  MistralEngine.vcxproj -> C:\Users\Marc\Desktop\VIGa\bin\Win32\Debug\MistralEngine.exe

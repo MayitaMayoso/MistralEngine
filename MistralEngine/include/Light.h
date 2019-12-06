@@ -14,8 +14,8 @@ public:
 		m_game = game;
 		R = 0; G = 0; B = 0;
 		X = 0; Y = 0; Z = 0;
-		Strenght = 0;
-		SpecularStrenght = 0;
+		Strenght = 1;
+		SpecularStrenght = 32;
 	}
 
 	void SetR(GLfloat r)

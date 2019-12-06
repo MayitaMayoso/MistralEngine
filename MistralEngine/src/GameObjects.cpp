@@ -63,7 +63,7 @@ void Planet::Update() {
 }
 
 void Universe::Update() {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	program.use();
 
 	static const GLfloat black[] = { 0.0f, 0.0f, 0.0f, 0.0f };
@@ -100,5 +100,6 @@ void Universe::Update() {
 
 	glEnable(GL_PROGRAM_POINT_SIZE);
 	glDrawArrays(GL_POINTS, 0, NUM_STARS);
+	glDisable(GL_BLEND);
 
 }
