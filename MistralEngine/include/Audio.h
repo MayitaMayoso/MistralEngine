@@ -16,9 +16,9 @@ using namespace std;
 class Audio {//There will be only an Audio object for the entire game, which will contain all buffers(sound effects)
 public:
 	Audio();
-	
+
 	int loadSound(const char* wavFile);
-	void setListenerData();
+	void setListenerData(float x, float y, float z);
 
 
 	//load wav file functions:

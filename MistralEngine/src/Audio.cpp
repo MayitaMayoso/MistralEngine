@@ -5,7 +5,7 @@ Audio::Audio() {
 	//Initialization
 	m_device = alcOpenDevice(NULL);
 
-	if(m_device) {
+	if (m_device) {
 		m_context = alcCreateContext(m_device, NULL);
 		alcMakeContextCurrent(m_context);
 	}
@@ -18,16 +18,16 @@ int Audio::loadSound(const char* wavFile) {
 	//Generate new buffer
 	unsigned int m_buffer;
 	alGenBuffers(1, &m_buffer);
-	m_listBuffers.push_back(m_buffer);
+	//m_listBuffers.push_back(m_buffer);
 
 	//Load .wav file
 	int channel, sampleRate, bps, size;
 	char* data = loadWAV(wavFile, channel, sampleRate, bps, size);
-	
+
 
 	unsigned int format;
 
-	if (channel == 1){
+	if (channel == 1) {
 		if (bps == 8)
 			format = AL_FORMAT_MONO8;
 		else format = AL_FORMAT_MONO16;
@@ -46,8 +46,8 @@ int Audio::loadSound(const char* wavFile) {
 
 
 
-void Audio::setListenerData() {
-	alListener3f(AL_POSITION, 0, 0, 0);
+void Audio::setListenerData(float x, float y, float z) {
+	alListener3f(AL_POSITION, x, y, z);
 	alListener3f(AL_VELOCITY, 0, 0, 0);
 }
 
@@ -108,3 +108,4 @@ char* Audio::loadWAV(const char* fn, int& chan, int& samplerate, int& bps, int& 
 	in.read(data, size);
 	return data;
 }
+
