@@ -180,12 +180,6 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	lightscene->SetSpecularStrenght(64);
 
 
-	//Testing audio
-	Audio audio;
-	audio.setListenerData();
-	int buffer = audio.loadSound("_resources/Audios/laser_bullet.wav");
-	AudioSource* source = new AudioSource;
-	
 	string vertexPath = "_resources/Shaders/vertex1.frag";
 	string fragmentPath = "_resources/Shaders/fragment1.frag";
 	programs.push_back(make_pair("model", Program(vertexPath.c_str(), fragmentPath.c_str()).getId()));
