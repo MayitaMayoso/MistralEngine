@@ -1,8 +1,11 @@
-#include "..\include\Scenario.h"
+#include "MistralEngine.h"
+#include "Scenario.h"
+#include "GameObjects.h"
+#include "Entity.h"
 
-Scenario::Scenario(MistralEngine* game)
+Scenario::Scenario(MistralEngine* g)
 {
-	m_game = game;
+	game = g;
 }
 
 void Scenario::ReadScenario(string path)
@@ -14,7 +17,7 @@ void Scenario::ReadScenario(string path)
 	float y;
 	float z;
 
-	ifstream file(path);
+	ifstream file( "_resources/Scenarios/" + path);
 
 	if (file.is_open())
 	{
@@ -39,19 +42,19 @@ void Scenario::ReadScenario(string path)
 
 					if (object == "Character")
 					{
-						Character* p = new Character(m_game);
+						Character* p = new Character(game);
 						p->set_position(x, y, z);
 					}
 
 					if (object == "Planet")
 					{
-						Planet* p = new Planet(m_game);
+						Planet* p = new Planet(game);
 						p->set_position(x, y, z);
 					}
 
 					if (object == "Nanosuit")
 					{
-						Nanosuit* p = new Nanosuit(m_game);
+						Nanosuit* p = new Nanosuit(game);
 						p->set_position(x, y, z);
 					}
 
@@ -67,4 +70,23 @@ void Scenario::ReadScenario(string path)
 		}
 	}
 
+}
+
+void Scenario::ChangeScenario(string path) {
+	room2change = true;
+	nextRoom = path;
+}
+
+void Scenario::CheckAndChangeScenario() {
+	if (room2change) {
+		for (Entity* e : game->EntitiesList) {
+			delete e;
+		}
+
+		game->EntitiesList.clear();
+
+		room2change = false;
+
+		ReadScenario(nextRoom);
+	}
 }

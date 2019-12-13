@@ -73,7 +73,7 @@ void MistralEngine::CalculateTime() {
 void MistralEngine::GeneralDraw() {
 
 	glClearDepth(1.0f);
-	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glViewport(0, 0, width, height);
 
 	glMatrixMode(GL_PROJECTION);
@@ -104,6 +104,7 @@ void MistralEngine::GeneralUpdate(int value) {
 	CalculateTime();
 	glutTimerFunc(1000 / fps, UpdateCallback, 0);
 	glutPostRedisplay();
+	scenario->CheckAndChangeScenario();
 }
 
 void MistralEngine::GeneralPressKeyboard(unsigned char key, int x, int y) {
@@ -184,11 +185,9 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	string fragmentPath = "_resources/Shaders/fragment1.frag";
 	programs.push_back(make_pair("model", Program(vertexPath.c_str(), fragmentPath.c_str()).getId()));
 
-	new Universe(self);
 
-
-	Scenario* scenario = new Scenario(self);
-	scenario->ReadScenario("_resources/Scenarios/scenario.txt");
+	scenario = new Scenario(self);
+	scenario->ReadScenario("scenario.txt");
 	
 	camera = new Camera(self);
 

@@ -17,6 +17,7 @@ class MistralEngine;
 class Entity {
 	public:
 		Entity( MistralEngine* g ); // Class constructor. Initializes all the Entities built-in variables.
+		~Entity();
 		void DrawSelf(); // Draws the Entitys body. Position, scale and angle affects how the bodys is drawn.
 
 		virtual void Create() {};
@@ -25,6 +26,7 @@ class Entity {
 		virtual void LoadModel( string modelPath);
 
 		// ------------------- Getters and Setters -----------------------
+		bool visible = true;
 		string get_name();
 		unsigned int get_id();
 		float get_x(), get_y(), get_z();
@@ -49,7 +51,6 @@ class Entity {
 
 		Model model;
 		Program program;
-		bool visible = true;
 
 		MistralEngine* game;
 };

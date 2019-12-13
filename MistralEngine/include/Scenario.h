@@ -2,17 +2,21 @@
 #define SCENARIO_H
 #pragma once
 #include <string>
-#include "MistralEngine.h"
-#include "GameObjects.h"
 
+class MistralEngine;
 
 class Scenario
 {
 public:
-	Scenario(MistralEngine* game);
+	Scenario(MistralEngine* g);
 	void ReadScenario(string path);
+	void ChangeScenario(string path);
+	void CheckAndChangeScenario();
 
 private:
-	MistralEngine* m_game;
+	MistralEngine* game;
+
+	bool room2change = false;
+	string nextRoom;
 };
 #endif

@@ -35,6 +35,15 @@ Entity::Entity(MistralEngine* g) {
 	g->EntitiesList.push_back(this);
 }
 
+Entity::~Entity() {/*
+	int pos = 0;
+	for (Entity* e : game->EntitiesList) {
+		if (e == this) break;
+		pos++;
+	}
+	game->EntitiesList.erase(pos);*/
+}
+
 void Entity::DrawSelf() {
 	if (visible) {
 		program.use();	

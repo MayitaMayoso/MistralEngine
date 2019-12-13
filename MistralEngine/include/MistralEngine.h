@@ -28,6 +28,8 @@ class Input;
 
 class Camera;
 
+class Scenario;
+
 class MistralEngine {
 public:
 	MistralEngine();
@@ -55,6 +57,7 @@ public:
 	vector<pair<string, GLint>> programs;
 	Input* input;
 	Camera* camera;
+	Scenario* scenario;
 
 private:
 	void CalculateTime();

@@ -2,6 +2,7 @@
 #include "Input.h"
 #include "Camera.h"
 #include "GameObjects.h"
+#include "Scenario.h"
 
 float approach(float a, float b, float amount) {
 	if (a < b) {
@@ -53,7 +54,9 @@ void Character::Update() {
 	// generate view matrix
 	game->cameraView = glm::lookAt(game->camera->position, game->camera->lookat, glm::vec3(0.0f, 1.0f, 0.0f));
 
-	
+	if (game->input->InputCheck("UP", InputState::HOLD)) {
+		game->scenario->ChangeScenario("scenario.txt");
+	}
 }
 
 void Planet::Update() {
