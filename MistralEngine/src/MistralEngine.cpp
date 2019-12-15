@@ -71,7 +71,6 @@ void MistralEngine::CalculateTime() {
 }
 
 void MistralEngine::GeneralDraw() {
-
 	glClearDepth(1.0f);
 
 	bool universe = false;

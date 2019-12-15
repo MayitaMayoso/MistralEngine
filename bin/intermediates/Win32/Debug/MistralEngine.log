@@ -1,22 +1,8 @@
-﻿  Entity.cpp
-  GameObjects.cpp
+﻿  MistralEngine.cpp
 C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\include\GameObjects.h(242,25): warning C4838: la conversión de 'FT_Pos' en 'GLuint' requiere una conversión de restricción
-C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\include\GameObjects.h(242,25): warning C4838: la conversión de 'FT_Pos' en 'GLuint' requiere una conversión de restricción
-C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\src\GameObjects.cpp(53,54): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\src\GameObjects.cpp(53,74): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\src\GameObjects.cpp(53,94): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\src\GameObjects.cpp(145,21): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\src\GameObjects.cpp(146,104): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
-C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\src\GameObjects.cpp(156,21): warning C4305: '-=': truncamiento de 'double' a 'float'
-  MistralEngine.cpp
-C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\src\GameObjects.cpp(168,46): warning C4244: 'argumento': conversión de 'unsigned int' a 'GLfloat'; posible pérdida de datos
-C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\include\GameObjects.h(242,25): warning C4838: la conversión de 'FT_Pos' en 'GLuint' requiere una conversión de restricción
-  Scenario.cpp
 C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244: '=': conversión de 'genType' a 'int'; posible pérdida de datos
 C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:         with
 C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:         [
 C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:             genType=float
 C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:         ]
-  Generando código...
-C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\include\GameObjects.h(242,25): warning C4838: la conversión de 'FT_Pos' en 'GLuint' requiere una conversión de restricción
   MistralEngine.vcxproj -> C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\bin\Win32\Debug\MistralEngine.exe
