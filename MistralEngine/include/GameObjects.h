@@ -308,7 +308,7 @@ public:
 
 	void Update();
 private:
-	bool initialized = false;
+	bool visible = true;
 	bool moving = false;
 
 	
@@ -324,11 +324,11 @@ private:
 	GLuint VAO;
 	GLuint VBO;
 
-	std::string history[25] = { "Mistral Engine", "Episode I","Creating the motor", "", "After much effortand sweat",
+	std::string history[25] = { "Mistral Engine", "Episode I","Creating the motor", "", "After much effort and sweat",
 	" our engineers have developed", "   a functional graphic engine." , "Taking advantage of the death" ,
 	"of the supreme leader Snoke," , "   will use the engine to fight " ,
 	"the new order throughout" , "the galaxy." , "","You are the protagonist and", "you must fly the spaceship.", "It is time to destroy",
-	"all the bases of the", "first order, end the Sith", "forcesand bring peace back", " to the galaxy ...", "", "Feed your hype to",
+	"all the bases of the", "first order, end the Sith", "forces and bring peace back", " to the galaxy ...", "", "Feed your hype to",
 	"see the movie playing some,", "see you today at the cinema."};
 
 	int step = 1;
