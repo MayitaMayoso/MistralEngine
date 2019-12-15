@@ -1,51 +1,10 @@
-﻿  Camera.cpp
-  Entity.cpp
-  GameObjects.cpp
-C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(52,54): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(52,74): warning C4305: 'argument': truncation from 'double' to 'float'
-  MistralEngine.cpp
-C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(52,94): warning C4305: 'argument': truncation from 'double' to 'float'
-  Scenario.cpp
-  Generating Code...
-C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244: '=': conversion from 'genType' to 'int', possible loss of data
-C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:         with
-C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:         [
-C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:             genType=float
-C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\MistralEngine.cpp(38,20): warning C4244:         ]
-LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
-LINK : warning LNK4286: symbol '___glewActiveTexture' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
-LINK : warning LNK4286: symbol '___glewBindBuffer' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
-LINK : warning LNK4286: symbol '___glewBufferData' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
-LINK : warning LNK4286: symbol '___glewGenBuffers' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
-LINK : warning LNK4286: symbol '___glewDeleteProgram' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
-LINK : warning LNK4286: symbol '___glewEnableVertexAttribArray' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
-LINK : warning LNK4286: symbol '___glewGetUniformLocation' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
-LINK : warning LNK4286: symbol '___glewGetUniformLocation' defined in 'glew32s.lib(glew.obj)' is imported by 'GameObjects.obj'
-LINK : warning LNK4286: symbol '___glewUniform1f' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
-LINK : warning LNK4286: symbol '___glewUniform1f' defined in 'glew32s.lib(glew.obj)' is imported by 'GameObjects.obj'
-LINK : warning LNK4286: symbol '___glewUniform1i' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
-LINK : warning LNK4286: symbol '___glewUniform3f' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
-LINK : warning LNK4286: symbol '___glewUniform3fv' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
-LINK : warning LNK4286: symbol '___glewUseProgram' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
-LINK : warning LNK4286: symbol '___glewUseProgram' defined in 'glew32s.lib(glew.obj)' is imported by 'GameObjects.obj'
-LINK : warning LNK4286: symbol '___glewVertexAttribPointer' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
-LINK : warning LNK4286: symbol '___glewGenerateMipmap' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
-LINK : warning LNK4286: symbol '___glewProgramUniformMatrix4fv' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
-LINK : warning LNK4286: symbol '___glewProgramUniformMatrix4fv' defined in 'glew32s.lib(glew.obj)' is imported by 'GameObjects.obj'
-LINK : warning LNK4286: symbol '___glewBindVertexArray' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
-LINK : warning LNK4286: symbol '___glewBindVertexArray' defined in 'glew32s.lib(glew.obj)' is imported by 'GameObjects.obj'
-LINK : warning LNK4286: symbol '___glewGenVertexArrays' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
-LINK : warning LNK4286: symbol '___glewClearBufferfv' defined in 'glew32s.lib(glew.obj)' is imported by 'GameObjects.obj'
-LINK : warning LNK4286: symbol '___glewAttachShader' defined in 'glew32s.lib(glew.obj)' is imported by 'Program.obj'
-LINK : warning LNK4286: symbol '___glewCompileShader' defined in 'glew32s.lib(glew.obj)' is imported by 'Program.obj'
-LINK : warning LNK4286: symbol '___glewCreateProgram' defined in 'glew32s.lib(glew.obj)' is imported by 'Program.obj'
-LINK : warning LNK4286: symbol '___glewCreateShader' defined in 'glew32s.lib(glew.obj)' is imported by 'Program.obj'
-LINK : warning LNK4286: symbol '___glewDeleteShader' defined in 'glew32s.lib(glew.obj)' is imported by 'Program.obj'
-LINK : warning LNK4286: symbol '___glewGetProgramInfoLog' defined in 'glew32s.lib(glew.obj)' is imported by 'Program.obj'
-LINK : warning LNK4286: symbol '___glewGetProgramiv' defined in 'glew32s.lib(glew.obj)' is imported by 'Program.obj'
-LINK : warning LNK4286: symbol '___glewGetShaderInfoLog' defined in 'glew32s.lib(glew.obj)' is imported by 'Program.obj'
-LINK : warning LNK4286: symbol '___glewGetShaderiv' defined in 'glew32s.lib(glew.obj)' is imported by 'Program.obj'
-LINK : warning LNK4286: symbol '___glewLinkProgram' defined in 'glew32s.lib(glew.obj)' is imported by 'Program.obj'
-LINK : warning LNK4286: symbol '___glewShaderSource' defined in 'glew32s.lib(glew.obj)' is imported by 'Program.obj'
-glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Debug\vc120.pdb'; linking object as if no debug info
-  MistralEngine.vcxproj -> C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Debug\MistralEngine.exe
+﻿  GameObjects.cpp
+C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\include\GameObjects.h(242,25): warning C4838: la conversión de 'FT_Pos' en 'GLuint' requiere una conversión de restricción
+C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\src\GameObjects.cpp(53,54): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\src\GameObjects.cpp(53,74): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\src\GameObjects.cpp(53,94): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\src\GameObjects.cpp(145,20): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\src\GameObjects.cpp(146,103): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\src\GameObjects.cpp(156,20): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\MistralEngine\src\GameObjects.cpp(168,45): warning C4244: 'argumento': conversión de 'unsigned int' a 'GLfloat'; posible pérdida de datos
+  MistralEngine.vcxproj -> C:\Users\Marcos\Desktop\Universidad\Visualizacion grafica interactiva\MistralEngine\bin\Win32\Debug\MistralEngine.exe

@@ -73,7 +73,20 @@ void MistralEngine::CalculateTime() {
 void MistralEngine::GeneralDraw() {
 
 	glClearDepth(1.0f);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	bool universe = false;
+	bool intro = false;
+
+	// Check start entities
+	for (Entity* e : EntitiesList) {
+		if (e->get_name() == "Intro")
+			intro = true;
+		else if (e->get_name() == "Universe")
+			universe = true;
+	}
+
+	if (!universe)
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glViewport(0, 0, width, height);
 
 	glMatrixMode(GL_PROJECTION);
@@ -84,27 +97,36 @@ void MistralEngine::GeneralDraw() {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
+	
 	// Draw all the entities
 	for (Entity* e : EntitiesList) {
 		e->DrawSelf();
 	}
 
-	glutSwapBuffers();
+	if (!intro)
+		glutSwapBuffers();
 }
 void MistralEngine::GeneralUpdate(int value) {
 	// Update all the Input States
 	input->UpdateInputs();
-	//camera->UpdateCamera();
-
+	camera->UpdateCamera();
+	
+	bool intro = false;
 	// Draw all the entities
 	for (Entity* e : EntitiesList) {
 		e->Update();
+		if (e->get_name() == "Intro")
+			intro = true;
 	}
 
 	CalculateTime();
 	glutTimerFunc(1000 / fps, UpdateCallback, 0);
 	glutPostRedisplay();
-	scenario->CheckAndChangeScenario();
+	if (scenario != NULL)
+		scenario->CheckAndChangeScenario();
+	
+	if (intro)
+		glutSwapBuffers();
 }
 
 void MistralEngine::GeneralPressKeyboard(unsigned char key, int x, int y) {
@@ -161,8 +183,8 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	glEnable(GL_DEPTH_TEST);
 	
 	
-	//glEnable(GL_DEBUG_OUTPUT);
-	//glDebugMessageCallback(MessageCallback, 0);
+	glEnable(GL_DEBUG_OUTPUT);
+	glDebugMessageCallback(MessageCallback, 0);
 	glDepthMask(GL_TRUE);
 	glDepthFunc(GL_LESS);
 	glDepthRange(0.0f, 1.0f);
@@ -180,16 +202,17 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 	lightscene->SetStrenght(1.0f);
 	lightscene->SetSpecularStrenght(64);
 
-
-	string vertexPath = "_resources/Shaders/vertex1.frag";
-	string fragmentPath = "_resources/Shaders/fragment1.frag";
-	programs.push_back(make_pair("model", Program(vertexPath.c_str(), fragmentPath.c_str()).getId()));
+	new Universe(self);
+	new Intro(self);
 
 
-	scenario = new Scenario(self);
-	scenario->ReadScenario("scenario.txt");
-	
+	//new Character(self);
+
+	//scenario = new Scenario(self);
+	//scenario->ReadScenario("scenario.txt");
+
 	camera = new Camera(self);
+
 
 	// Setting the loop functions
 	glutDisplayFunc(DrawCallback);

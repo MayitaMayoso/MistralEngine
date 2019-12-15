@@ -4,6 +4,7 @@
 #include "GameObjects.h"
 #include "Scenario.h"
 
+
 float approach(float a, float b, float amount) {
 	if (a < b) {
 		float shift = a + amount;
@@ -71,9 +72,8 @@ void Universe::Update() {
 
 	static const GLfloat black[] = { 0.0f, 0.0f, 0.0f, 0.0f };
 	static const GLfloat one[] = { 1.0f };
-	glm::mat4 proj_matrix = glm::perspective(50.0f,
-		(float)game->width / (float)game->height, 0.1f, 1000.0f);
-	
+	glm::mat4 proj_matrix = glm::perspective(50.0f, (float)game->width / (float)game->height, 0.1f, 1000.0f);
+
 	t = (float)game->CurrentTime;
 
 	if (game->input->InputCheck("FORWARD", InputState::HOLD) || game->input->InputCheck("BACKWARD", InputState::HOLD))
@@ -101,8 +101,74 @@ void Universe::Update() {
 	glBindVertexArray(star_vao);
 
 
-	glEnable(GL_PROGRAM_POINT_SIZE);
+	//glEnable(GL_PROGRAM_POINT_SIZE);
 	glDrawArrays(GL_POINTS, 0, NUM_STARS);
 	glDisable(GL_BLEND);
 
+}
+
+void Intro::Update() {
+	glEnable(GL_CULL_FACE);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+
+	program.use();
+
+	glm::mat4 model = glm::mat4(1.0f);
+	model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+	model = glm::translate(model, glm::vec3(0.0f, 0.0, 0.0f));
+	program.setMat4("model", model);
+
+
+	glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(game->width), 0.0f, static_cast<GLfloat>(game->height));
+	//glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)game->width / (float)game->height, 0.1f, 100.0f);
+	program.setMat4("projection", projection);
+
+	glm::mat4 view;
+	view = glm::lookAt(glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));
+
+	//view = glm::translate(view, glm::vec3(0.0f, 0.0f, camZ));
+	//view = glm::lookAt(glm::vec3(camX, 0.0, camZ), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));
+	//view = glm::lookAt(glm::vec3(0.0, 0.0, camZ), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));
+
+	program.setMat4("view", view);
+
+	if (!firstAudioLoaded && loadAudio) {
+		source->playSound(audioBuffer);
+		loadAudio = false;
+		firstAudioLoaded = true;
+	}
+
+	switch (step) {
+	case 1:
+		variable -= 0.005;
+		renderText("A long time ago in a galaxy far, far away...", (game->width / 2) - 560.0f, game->height / 2, 1.0f, glm::vec3(0.10588f, 0.490196f, 0.921568f), variable);
+		if (variable <= 0) {
+			step = 2;
+			variable = 4.0f;
+		}
+		break;
+	case 2:
+		if (!loadAudio)
+			loadAudio = true;
+
+		variable -= 0.005;
+		renderText("MISTRAL", (game->width / 2) - variable * 100, game->height / 2 + (variable * 20), variable, glm::vec3(0.90588f, 0.68235f, 0.0196f), 1.0f);
+		renderText("ENGINE", (game->width / 2) - variable * 92, game->height / 2 - (variable * 20), variable, glm::vec3(0.90588f, 0.68235f, 0.0196f), 1.0f);
+		if (variable <= 0) {
+			step = 3;
+		}
+		break;
+	case 3:
+		variable += 1.23f;
+		position = 0.0f + variable;
+		nextLine = 50.0f;
+		for (int i = 0; i < (sizeof(history) / sizeof(*history)); i++)
+			renderText(history[i], (game->width / 2) - (history[i].size() * 13), position = position - nextLine, 1.0f, glm::vec3(0.90588f, 0.68235f, 0.0196f), 1.0f);
+
+		if (position > game->height)
+			cout << "END INTRO" << endl;
+		break;
+	}
 }
