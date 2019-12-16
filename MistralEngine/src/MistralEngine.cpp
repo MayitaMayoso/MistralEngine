@@ -92,6 +92,11 @@ void MistralEngine::GeneralDraw() {
 		e->DrawSelf();
 	}
 
+	// Draw all the entities
+	for (Entity* e : EntitiesList) {
+		e->Draw();
+	}
+
 	glutSwapBuffers();
 }
 void MistralEngine::GeneralUpdate(int value) {

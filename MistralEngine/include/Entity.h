@@ -21,6 +21,7 @@ class Entity {
 
 		virtual void Create() {};
 		virtual void Update() {}; // This method is called in the Timer Function of the main loop.
+		virtual void Draw() {};
 		virtual void Destroy() {};
 
 		virtual void LoadModel( string modelPath);

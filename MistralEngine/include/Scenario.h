@@ -13,6 +13,8 @@ public:
 	void ChangeScenario(string path);
 	void CheckAndChangeScenario();
 
+	string name;
+
 private:
 	MistralEngine* game;
 

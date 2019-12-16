@@ -17,6 +17,8 @@ void Scenario::ReadScenario(string path)
 	float y;
 	float z;
 
+	name = path;
+
 	ifstream file( "_resources/Scenarios/" + path);
 
 	if (file.is_open())
@@ -91,6 +93,10 @@ void Scenario::ChangeScenario(string path) {
 
 void Scenario::CheckAndChangeScenario() {
 	if (room2change) {
+
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glutSwapBuffers();
+
 		for (Entity* e : game->EntitiesList) {
 			e->Destroy();
 			delete e;

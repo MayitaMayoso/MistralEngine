@@ -104,7 +104,7 @@ public:
 
 	void Create() {
 		LoadModel("moon/moon.obj");
-		set_scale(0.02, 0.022, 0.02);
+		set_scale(0.02, 0.024, 0.02);
 	}
 };
 

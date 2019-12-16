@@ -83,5 +83,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="_resources\Scenarios\Intro.txt" />
+    <Text Include="_resources\Scenarios\Game.txt" />
   </ItemGroup>
 </Project>

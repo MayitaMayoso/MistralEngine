@@ -1,4 +1,5 @@
-﻿  Entity.cpp
+﻿  Camera.cpp
+  Entity.cpp
 C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\include\GameObjects.h(19,1): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\include\GameObjects.h(55,1): warning C4305: 'argument': truncation from 'double' to 'float'
   GameObjects.cpp
@@ -6,10 +7,13 @@ C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\include\GameObjects.h
 C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\include\GameObjects.h(19,1): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\include\GameObjects.h(55,1): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\include\GameObjects.h(107,1): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(52,54): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(52,74): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(60,55): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(60,75): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(60,95): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(82,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(82,74): warning C4305: 'argument': truncation from 'double' to 'float'
   MistralEngine.cpp
-C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(52,94): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\GameObjects.cpp(82,93): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\include\GameObjects.h(19,1): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\include\GameObjects.h(55,1): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\include\GameObjects.h(107,1): warning C4305: 'argument': truncation from 'double' to 'float'
