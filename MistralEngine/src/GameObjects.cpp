@@ -68,6 +68,8 @@ void Planet::Update() {
 
 void Universe::Update() {
 	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+
 	program.use();
 
 	static const GLfloat black[] = { 0.0f, 0.0f, 0.0f, 0.0f };
@@ -94,16 +96,23 @@ void Universe::Update() {
 
 	program.setFloat("time", t);
 	program.setMat4("proj_matrix", proj_matrix);
+	program.setFloat("opacity",opacity);
 
 	glEnable(GL_BLEND);
-	glBlendFunc(GL_ONE, GL_ONE);
+	//glBlendFunc(GL_ONE, GL_ONE);
+
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+	glEnable(GL_BLEND);
+	glDisable(GL_DEPTH_TEST);
+
 
 	glBindVertexArray(star_vao);
 
 
 	//glEnable(GL_PROGRAM_POINT_SIZE);
 	glDrawArrays(GL_POINTS, 0, NUM_STARS);
-	glDisable(GL_BLEND);
+
+	glEnable(GL_DEPTH_TEST);
 
 }
 
@@ -119,6 +128,7 @@ void Intro::Update() {
 		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::translate(model, glm::vec3(0.0f, 0.0, 0.0f));
 		program.setMat4("model", model);
+
 
 
 		glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(game->width), 0.0f, static_cast<GLfloat>(game->height));

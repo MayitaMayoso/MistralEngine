@@ -119,7 +119,7 @@ public:
 
 		glGenBuffers(1, &star_buffer);
 		glBindBuffer(GL_ARRAY_BUFFER, star_buffer);
-		glBufferData(GL_ARRAY_BUFFER, NUM_STARS * sizeof(star_t), NULL, GL_STATIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, NUM_STARS * sizeof(star_t), NULL, GL_DYNAMIC_DRAW);
 
 		star_t* star = (star_t*)glMapBufferRange(GL_ARRAY_BUFFER, 0, NUM_STARS * sizeof(star_t), GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_BUFFER_BIT);
 		int i;
@@ -163,6 +163,7 @@ private:
 	bool initialized = false;
 	bool moving = false;
 
+	float opacity = 1.0;
 	GLuint star_texture;
 	GLuint star_vao;
 	GLuint star_buffer;
