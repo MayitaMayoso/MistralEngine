@@ -46,15 +46,27 @@ void Scenario::ReadScenario(string path)
 						p->set_position(x, y, z);
 					}
 
-					if (object == "Planet")
+					if (object == "Skybox")
 					{
-						Planet* p = new Planet(game);
+						Skybox* p = new Skybox(game);
 						p->set_position(x, y, z);
 					}
 
 					if (object == "Nanosuit")
 					{
 						Nanosuit* p = new Nanosuit(game);
+						p->set_position(x, y, z);
+					}
+
+					if (object == "Universe")
+					{
+						Universe* p = new Universe(game);
+						p->set_position(x, y, z);
+					}
+
+					if (object == "Planet")
+					{
+						Planet* p = new Planet(game);
 						p->set_position(x, y, z);
 					}
 
@@ -80,6 +92,7 @@ void Scenario::ChangeScenario(string path) {
 void Scenario::CheckAndChangeScenario() {
 	if (room2change) {
 		for (Entity* e : game->EntitiesList) {
+			e->Destroy();
 			delete e;
 		}
 

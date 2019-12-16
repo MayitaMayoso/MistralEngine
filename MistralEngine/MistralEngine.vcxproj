@@ -43,6 +43,9 @@
     <ClInclude Include="include\Scenario.h" />
     <ClInclude Include="include\ImageLoader.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="_resources\Scenarios\Intro.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{FE7B326E-3462-4F0A-B658-30AF2C88D7A5}</ProjectGuid>

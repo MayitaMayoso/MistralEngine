@@ -39,11 +39,11 @@ void Character::Update() {
 	y += y_spd;
 	z += z_spd;
 
-	game->camera->lookat = glm::vec3(x, y + 1.0f, z);
+	game->camera->lookat = glm::vec3(x, y + 0.1f, z);
 
-	float radius = 5.0f;
+	float radius = 0.5f;
 	float ncx = x + radius * sin(glm::radians(y_angle));
-	float ncy = y + 1;
+	float ncy = y + 0.1f;
 	float ncz = z + radius * cos(glm::radians(y_angle));
 	float cx = game->camera->position[0];
 	float cy = game->camera->position[1];
@@ -55,14 +55,81 @@ void Character::Update() {
 	game->cameraView = glm::lookAt(game->camera->position, game->camera->lookat, glm::vec3(0.0f, 1.0f, 0.0f));
 
 	if (game->input->InputCheck("UP", InputState::HOLD)) {
-		game->scenario->ChangeScenario("scenario.txt");
+		game->scenario->ChangeScenario("intro.txt");
 	}
 }
 
-void Planet::Update() {
+void Skybox::Update() {
 	x = game->camera->position[0];
 	y = game->camera->position[1];
 	z = game->camera->position[2];
+}
+
+void Universe::Create() {
+	game->ClearEnable = false;
+	program.load("_resources/Shaders/universe_vertex.frag", "_resources/Shaders/universe_fragment.frag");
+
+	glGenTextures(1, &star_texture);
+	glBindTexture(GL_TEXTURE_2D, star_texture);
+	// set the texture wrapping/filtering options (on the currently bound texture object)
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	// load and generate the texture
+	int width, height, nrChannels;
+	unsigned char* data = stbi_load("_resources/Textures/tx_wall.jpg", &width, &height, &nrChannels, 0);
+	if (data)
+	{
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+		glGenerateMipmap(GL_TEXTURE_2D);
+	}
+	else
+	{
+		std::cout << "Failed to load texture" << std::endl;
+	}
+	stbi_image_free(data);
+
+	glGenVertexArrays(1, &star_vao);
+	glBindVertexArray(star_vao);
+
+
+
+	struct star_t
+	{
+		glm::vec3     position;
+		glm::vec3     color;
+	};
+
+	glGenBuffers(1, &star_buffer);
+	glBindBuffer(GL_ARRAY_BUFFER, star_buffer);
+	glBufferData(GL_ARRAY_BUFFER, NUM_STARS * sizeof(star_t), NULL, GL_STATIC_DRAW);
+
+	star_t* star = (star_t*)glMapBufferRange(GL_ARRAY_BUFFER, 0, NUM_STARS * sizeof(star_t), GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_BUFFER_BIT);
+	int i;
+
+	for (i = 0; i < 1000; i++)
+	{
+		star[i].position[0] = (randomFloat() * 2.0f - 1.0f) * 100.0f;
+		star[i].position[1] = (randomFloat() * 2.0f - 1.0f) * 100.0f;
+		star[i].position[2] = randomFloat();
+		star[i].color[0] = 0.8f + randomFloat() * 0.2f;
+		star[i].color[1] = 0.8f + randomFloat() * 0.2f;
+		star[i].color[2] = 0.8f + randomFloat() * 0.2f;
+	}
+
+	glUnmapBuffer(GL_ARRAY_BUFFER);
+
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(star_t), NULL);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(star_t), (void*)sizeof(glm::vec3));
+	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
+
+
+}
+
+void Universe::Destroy() {
+	game->ClearEnable = true;
 }
 
 void Universe::Update() {
@@ -101,7 +168,7 @@ void Universe::Update() {
 	glBindVertexArray(star_vao);
 
 
-	glEnable(GL_PROGRAM_POINT_SIZE);
+	//glEnable(GL_PROGRAM_POINT_SIZE);
 	glDrawArrays(GL_POINTS, 0, NUM_STARS);
 	glDisable(GL_BLEND);
 

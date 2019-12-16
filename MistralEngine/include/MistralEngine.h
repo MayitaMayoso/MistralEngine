@@ -59,6 +59,8 @@ public:
 	Camera* camera;
 	Scenario* scenario;
 
+	bool ClearEnable = true;
+
 private:
 	void CalculateTime();
 

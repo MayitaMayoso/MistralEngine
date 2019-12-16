@@ -73,13 +73,16 @@ void MistralEngine::CalculateTime() {
 void MistralEngine::GeneralDraw() {
 
 	glClearDepth(1.0f);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	if (ClearEnable)
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
 	glViewport(0, 0, width, height);
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	gluPerspective(fov, AspectRatio, 0.01, 1000);
+	gluPerspective(fov, AspectRatio, 0.001, 10000);
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();

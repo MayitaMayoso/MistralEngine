@@ -17,11 +17,11 @@ class MistralEngine;
 class Entity {
 	public:
 		Entity( MistralEngine* g ); // Class constructor. Initializes all the Entities built-in variables.
-		~Entity();
 		void DrawSelf(); // Draws the Entitys body. Position, scale and angle affects how the bodys is drawn.
 
 		virtual void Create() {};
 		virtual void Update() {}; // This method is called in the Timer Function of the main loop.
+		virtual void Destroy() {};
 
 		virtual void LoadModel( string modelPath);
 
