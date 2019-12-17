@@ -7,6 +7,12 @@
 #include <GL/glew.h>
 #include <GL/glut.h>
 
+#include "Audio.h"
+#include "AudioSource.h"
+
+#include <ft2build.h>
+#include FT_FREETYPE_H
+
 using namespace std;
 
 class Character : public Entity {
@@ -40,6 +46,7 @@ public:
 
 	void Create() {
 		LoadModel("skybox/moon.obj");
+		//set_scale(0.01, 0.01, 0.01);
 	}
 
 	void Update();
@@ -106,6 +113,50 @@ public:
 		LoadModel("moon/moon.obj");
 		set_scale(0.02, 0.024, 0.02);
 	}
+};
+
+class Intro : public Entity {
+public:
+
+	Intro(MistralEngine* g) : Entity(g) { Create(); };
+
+	void Create();
+	void Draw();
+
+	void renderText(std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color, float opacity);
+private:
+	bool visible = true;
+	bool moving = false;
+
+	struct Character {
+		GLuint TextureID; // Id de la textura
+		glm::ivec2 Size; // Tamano del texto
+		glm::ivec2 Bearing; // Offset de arriba a abajo del texto
+		GLuint Advance; // Offset hacia la derecha del texto
+	};
+
+	std::map<GLchar, Character> Characters;
+
+	GLuint VAO;
+	GLuint VBO;
+
+	std::string history[25] = { "Mistral Engine", "Episode I","Creating the motor", "", "After much effort and sweat",
+	" our engineers have developed", "   a functional graphic engine." , "Taking advantage of the death" ,
+	"of the supreme leader Snoke," , "   will use the engine to fight " ,
+	"the new order throughout" , "the galaxy." , "","You are the protagonist and", "you must fly the spaceship.", "It is time to destroy",
+	"all the bases of the", "first order, end the Sith", "forces and bring peace back", " to the galaxy ...", "", "Feed your hype to",
+	"see the movie playing some,", "see you today at the cinema." };
+
+	int step = 1;
+	float variable = 1.0f;
+	float position = 0.0f;
+	float nextLine = 50.0f;
+	bool loadAudio = false;
+	bool firstAudioLoaded = false;
+
+	Audio audio;
+	int audioBuffer;
+	AudioSource* source = new AudioSource;
 };
 
 #endif
