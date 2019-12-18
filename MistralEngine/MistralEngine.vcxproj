@@ -44,8 +44,10 @@
     <ClInclude Include="include\ImageLoader.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="_resources\Scenarios\Game.txt" />
+    <Text Include="_resources\Scenarios\Naboo.txt" />
+    <Text Include="_resources\Scenarios\RedPlanet.txt" />
     <Text Include="_resources\Scenarios\Intro.txt" />
+    <Text Include="_resources\Scenarios\Tatooine.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

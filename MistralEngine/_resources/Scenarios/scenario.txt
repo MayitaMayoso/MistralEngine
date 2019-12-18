@@ -1,3 +1,5 @@
-Character/0/0/20
+Character/0/0/4
 Planet/0/0/0
+Planet2/-20/0/20
+Planet3/20/0/20
 Universe/0/0/0

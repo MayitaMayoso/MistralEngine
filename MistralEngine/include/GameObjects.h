@@ -27,7 +27,7 @@ public:
 
 	void Update();
 
-	float max_spd = 0.02f;
+	float max_spd = 0.06f;
 	float max_rspd = 1.0f;
 	float x_spd = 0.0f;
 	float y_spd = 0.0f;
@@ -58,9 +58,21 @@ public:
 	Nanosuit(MistralEngine* g) : Entity(g) { Create(); };
 
 	void Create() {
-		LoadModel("link/pose.obj");
-		set_scale(0.1, 0.1, 0.1);
+		LoadModel("gman/Ork_1.obj");
+		set_scale(0.001, 0.0012, 0.001);
 	}
+
+	void Update();
+
+	int hp = 100;
+
+	float max_spd = 0.02f;
+	float max_rspd = 1.0f;
+	float x_spd = 0.0f;
+	float z_spd = 0.0f;
+	float r_spd = 0.0f;
+	float spd = 0.0f;
+	float acceleration = 0.3f;
 };
 
 class Universe : public Entity {
@@ -112,6 +124,62 @@ public:
 	void Create() {
 		LoadModel("moon/moon.obj");
 		set_scale(0.02, 0.024, 0.02);
+	}
+};
+
+class Planet2 : public Entity {
+public:
+
+	Planet2(MistralEngine* g) : Entity(g) { Create(); };
+
+	void Create() {
+		LoadModel("Planet2/Mercury 1K.obj");
+		set_scale(0.02, 0.024, 0.02);
+	}
+};
+
+class Planet3 : public Entity {
+public:
+
+	Planet3(MistralEngine* g) : Entity(g) { Create(); };
+
+	void Create() {
+		LoadModel("Planet3/Mars 2K.obj");
+		//LoadModel("Planet2/Mercury 1K.obj");
+		set_scale(0.02, 0.024, 0.02);
+	}
+};
+
+class LevelPlanet : public Entity {
+public:
+
+	LevelPlanet(MistralEngine* g) : Entity(g) { Create(); };
+
+	void Create() {
+		LoadModel("naboo/naboo.obj");
+		set_scale(1, 0.03, 1);
+	}
+};
+
+class LevelPlanet2 : public Entity {
+public:
+
+	LevelPlanet2(MistralEngine* g) : Entity(g) { Create(); };
+
+	void Create() {
+		LoadModel("tatooine/tatooine.obj");
+		set_scale(1, 0.03, 1);
+	}
+};
+
+class LevelPlanet3 : public Entity {
+public:
+
+	LevelPlanet3(MistralEngine* g) : Entity(g) { Create(); };
+
+	void Create() {
+		LoadModel("redsurface/redsurface.obj");
+		set_scale(1, 0.03, 1);
 	}
 };
 

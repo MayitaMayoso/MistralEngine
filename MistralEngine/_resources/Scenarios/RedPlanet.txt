@@ -1,0 +1,4 @@
+Character/0/0/0
+LevelPlanet/0/-1/0
+Nanosuit/10/0/10
+Nanosuit/0/0/0

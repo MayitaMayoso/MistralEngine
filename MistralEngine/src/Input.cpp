@@ -8,6 +8,7 @@ void Input::InitializeKeys() {
 	addInput("RIGHT", { InputKey::ARROWRIGHT, InputKey::D });
 	addInput("UP", { InputKey::Q });
 	addInput("DOWN", { InputKey::E });
+	addInput("SHOOT", { InputKey::SPACE });
 }
 
 Input::Input() {

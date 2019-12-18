@@ -148,6 +148,37 @@ void Scenario::ReadScenario(string path)
 						p->set_position(x, y, z);
 					}
 
+					if (object == "Planet2")
+					{
+						Planet2* p = new Planet2(game);
+						p->set_position(x, y, z);
+					}
+
+					if (object == "Planet3")
+					{
+						Planet3* p = new Planet3(game);
+						p->set_position(x, y, z);
+						cout << "xd";
+					}
+
+					if (object == "LevelPlanet")
+					{
+						LevelPlanet* p = new LevelPlanet(game);
+						p->set_position(x, y, z);
+					}
+
+					if (object == "LevelPlanet2")
+					{
+						LevelPlanet2* p = new LevelPlanet2(game);
+						p->set_position(x, y, z);
+					}
+
+					if (object == "LevelPlanet3")
+					{
+						LevelPlanet3* p = new LevelPlanet3(game);
+						p->set_position(x, y, z);
+					}
+
 					if (object == "Intro")
 					{
 						Intro* p = new Intro(game);
@@ -177,32 +208,6 @@ void Scenario::CheckAndChangeScenario() {
 	if (room2change) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		glEnable(GL_CULL_FACE);
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-		program.use();
-
-		glm::mat4 model = glm::mat4(1.0f);
-		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 0.0f, 1.0f));
-		model = glm::translate(model, glm::vec3(0.0f, 0.0, 0.0f));
-		program.setMat4("model", model);
-
-
-
-		glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(game->width), 0.0f, static_cast<GLfloat>(game->height));
-		//glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)game->width / (float)game->height, 0.1f, 100.0f);
-		program.setMat4("projection", projection);
-
-		glm::mat4 view;
-		view = glm::lookAt(glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));
-
-		//view = glm::translate(view, glm::vec3(0.0f, 0.0f, camZ));
-		//view = glm::lookAt(glm::vec3(camX, 0.0, camZ), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));
-		//view = glm::lookAt(glm::vec3(0.0, 0.0, camZ), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));
-
-		program.setMat4("view", view);
-
 		renderText("Loading Screen", (game->width / 2) - 560.0f, game->height / 2, 1.0f, glm::vec3(0.10588f, 0.490196f, 0.921568f), 1.0f);
 		glutSwapBuffers();
 
@@ -220,6 +225,34 @@ void Scenario::CheckAndChangeScenario() {
 }
 
 void Scenario::renderText(std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color, float opacity) {
+
+
+	glEnable(GL_CULL_FACE);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+	program.use();
+
+	glm::mat4 model = glm::mat4(1.0f);
+	model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+	model = glm::translate(model, glm::vec3(0.0f, 0.0, 0.0f));
+	program.setMat4("model", model);
+
+
+
+	glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(game->width), 0.0f, static_cast<GLfloat>(game->height));
+	//glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)game->width / (float)game->height, 0.1f, 100.0f);
+	program.setMat4("projection", projection);
+
+	glm::mat4 view;
+	view = glm::lookAt(glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));
+
+	//view = glm::translate(view, glm::vec3(0.0f, 0.0f, camZ));
+	//view = glm::lookAt(glm::vec3(camX, 0.0, camZ), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));
+	//view = glm::lookAt(glm::vec3(0.0, 0.0, camZ), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));
+
+	program.setMat4("view", view);
+
 	program.setFloat("opacity", opacity);
 	glUniform3f(glGetUniformLocation(program.getId(), "textColor"), color.x, color.y, color.z);
 

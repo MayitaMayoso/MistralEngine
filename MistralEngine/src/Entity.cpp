@@ -22,9 +22,9 @@ Entity::Entity(MistralEngine* g) {
 	x_angle = 0.0f;
 	y_angle = 0.0f;
 	z_angle = 0.0f;
-	red = 1;
-	green = 1;
-	blue = 1;
+	red = 0.0f;
+	green = 0.0f;
+	blue = 0.0f;
 
 	game = g;
 

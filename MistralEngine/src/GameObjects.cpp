@@ -25,6 +25,13 @@ float distance( float x1, float y1, float z1, float x2, float y2, float z2) {
 	return sqrt(xx*xx + yy*yy + zz*zz);
 }
 
+int sign(float value) {
+	if (value == 0) {
+		return 0;
+	} else {
+		return (value > 0) ? 1 : -1;
+	}
+}
 
 void Character::Update() {
 	int r_input = (int)game->input->InputCheck("LEFT", InputState::HOLD) - (int)game->input->InputCheck("RIGHT", InputState::HOLD);
@@ -35,7 +42,7 @@ void Character::Update() {
 	float cy = game->camera->position[1];
 	float cz = game->camera->position[2];
 
-	if (game->scenario->name != "Game.txt") {
+	if (game->scenario->name == "Scenario.txt") {
 		ry_spd = lerp(ry_spd, max_rspd * r_input, acceleration);
 
 		y_spd = lerp(y_spd, max_spd * v_input, acceleration);
@@ -66,7 +73,21 @@ void Character::Update() {
 			if (e->get_name() == "Planet") {
 				float dist = distance(e->get_x(), e->get_y(), e->get_z(), x, y, z);
 				if (dist < 1.1) {
-					game->scenario->ChangeScenario("Game.txt");
+					game->scenario->ChangeScenario("RedPlanet.txt");
+				}
+			} else {
+				if (e->get_name() == "Planet2") {
+					float dist = distance(e->get_x(), e->get_y(), e->get_z(), x, y, z);
+					if (dist < 1.1) {
+						game->scenario->ChangeScenario("Naboo.txt");
+					}
+				} else {
+					if (e->get_name() == "Planet3") {
+						float dist = distance(e->get_x(), e->get_y(), e->get_z(), x, y, z);
+						if (dist < 1.1) {
+							game->scenario->ChangeScenario("Tatooine.txt");
+						}
+					}
 				}
 			}
 		}
@@ -80,7 +101,7 @@ void Character::Update() {
 
 		game->camera->lookat = glm::vec3(x, y, z);
 
-		game->camera->position = glm::vec3(lerp(cx, x, 0.05), lerp(cy, y+2, 0.1), lerp(cz, z, 0.05));
+		game->camera->position = glm::vec3(lerp(cx, x, 0.1), lerp(cy, y+2, 0.1), lerp(cz, z, 0.1));
 		game->cameraView = glm::lookAt(game->camera->position, game->camera->lookat, glm::vec3(0.0f, 0.0f, -1.0f));
 	}
 }
@@ -393,6 +414,31 @@ void Intro::Draw() {
 				game->scenario->ChangeScenario("scenario.txt");
 			}
 			break;
+		}
+	}
+}
+
+void Nanosuit::Update() {
+	for (Entity* e : game->EntitiesList) {
+		if (e->get_name() == "Character") {
+			float ex = e->get_x();
+			float ez = e->get_z();
+
+			int x_input = sign(ex - x);
+			int z_input = sign(ez - z);
+
+			if (distance(x, 0, z, ex, 0, ez) < 0.1) {
+				x_input = 0;
+				z_input = 0;
+			}
+
+			x_spd = lerp(x_spd, max_spd * x_input, acceleration);
+			z_spd = lerp(z_spd, max_spd * z_input, acceleration);
+
+			y_angle = glm::degrees(-atan2( ez - z, ex - x) + 90);
+
+			x += x_spd;
+			z += z_spd;
 		}
 	}
 }

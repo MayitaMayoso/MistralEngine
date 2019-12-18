@@ -195,7 +195,7 @@ int MistralEngine::Run(int argc, char * args[], MistralEngine* s) {
 
 
 	scenario = new Scenario(self);
-	scenario->ReadScenario("Intro.txt");
+	scenario->ReadScenario("Scenario.txt");
 	
 	camera = new Camera(self);
 
