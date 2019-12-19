@@ -1,7 +1,75 @@
-﻿  MistralEngine.cpp
+﻿  Scenario.cpp
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\include\GameObjects.h(25,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\include\GameObjects.h(62,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\include\GameObjects.h(126,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\include\GameObjects.h(137,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\include\GameObjects.h(149,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\include\GameObjects.h(160,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\include\GameObjects.h(171,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\include\GameObjects.h(182,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\Scenario.cpp(65,24): warning C4838: conversion from 'FT_Pos' to 'GLuint' requires a narrowing conversion
+C:\Users\molin\Universidad\VGI\MistralEngine\MistralEngine\src\Scenario.cpp(210,73): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  3 of 178 functions ( 1.7%) were compiled, the rest were copied from previous compilation.
+  3 of 1522 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    20 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
+LINK : warning LNK4286: symbol '___glewUniform3fv' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
+LINK : warning LNK4286: symbol '___glewUniform3f' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
+LINK : warning LNK4286: symbol '___glewGenerateMipmap' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
+LINK : warning LNK4286: symbol '___glewGenBuffers' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
+LINK : warning LNK4286: symbol '___glewProgramUniformMatrix4fv' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
+LINK : warning LNK4286: symbol '___glewGenVertexArrays' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
+LINK : warning LNK4286: symbol '___glewDeleteProgram' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
+LINK : warning LNK4286: symbol '___glewActiveTexture' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
+LINK : warning LNK4286: symbol '___glewBufferData' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
+LINK : warning LNK4286: symbol '___glewGetUniformLocation' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
+LINK : warning LNK4286: symbol '___glewUniform1f' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
+LINK : warning LNK4286: symbol '___glewUniform1i' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
+LINK : warning LNK4286: symbol '___glewBindBuffer' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
+LINK : warning LNK4286: symbol '___glewVertexAttribPointer' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
+LINK : warning LNK4286: symbol '___glewUseProgram' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
+LINK : warning LNK4286: symbol '___glewBindVertexArray' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
+LINK : warning LNK4286: symbol '___glewEnableVertexAttribArray' defined in 'glew32s.lib(glew.obj)' is imported by 'Entity.obj'
+LINK : warning LNK4286: symbol '___glewMapBufferRange' defined in 'glew32s.lib(glew.obj)' is imported by 'GameObjects.obj'
+LINK : warning LNK4286: symbol '___glewUnmapBuffer' defined in 'glew32s.lib(glew.obj)' is imported by 'GameObjects.obj'
+LINK : warning LNK4286: symbol '___glewClearBufferfv' defined in 'glew32s.lib(glew.obj)' is imported by 'GameObjects.obj'
+LINK : warning LNK4286: symbol '___glewBufferSubData' defined in 'glew32s.lib(glew.obj)' is imported by 'GameObjects.obj'
+LINK : warning LNK4286: symbol '___glewLinkProgram' defined in 'glew32s.lib(glew.obj)' is imported by 'Program.obj'
+LINK : warning LNK4286: symbol '___glewDeleteShader' defined in 'glew32s.lib(glew.obj)' is imported by 'Program.obj'
+LINK : warning LNK4286: symbol '___glewGetProgramInfoLog' defined in 'glew32s.lib(glew.obj)' is imported by 'Program.obj'
+LINK : warning LNK4286: symbol '___glewShaderSource' defined in 'glew32s.lib(glew.obj)' is imported by 'Program.obj'
+LINK : warning LNK4286: symbol '___glewAttachShader' defined in 'glew32s.lib(glew.obj)' is imported by 'Program.obj'
+LINK : warning LNK4286: symbol '___glewGetProgramiv' defined in 'glew32s.lib(glew.obj)' is imported by 'Program.obj'
+LINK : warning LNK4286: symbol '___glewGetShaderInfoLog' defined in 'glew32s.lib(glew.obj)' is imported by 'Program.obj'
+LINK : warning LNK4286: symbol '___glewCreateProgram' defined in 'glew32s.lib(glew.obj)' is imported by 'Program.obj'
+LINK : warning LNK4286: symbol '___glewCreateShader' defined in 'glew32s.lib(glew.obj)' is imported by 'Program.obj'
+LINK : warning LNK4286: symbol '___glewCompileShader' defined in 'glew32s.lib(glew.obj)' is imported by 'Program.obj'
+LINK : warning LNK4286: symbol '___glewGetShaderiv' defined in 'glew32s.lib(glew.obj)' is imported by 'Program.obj'
+glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\vc120.pdb'; linking object as if no debug info
+freetype.lib(autofit.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(autofit.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
+freetype.lib(ftbase.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(ftbase.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
+freetype.lib(ftbitmap.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(ftbitmap.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
+freetype.lib(ftinit.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(ftinit.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
+freetype.lib(ftsystem.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(ftsystem.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
+freetype.lib(bdf.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(bdf.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
+freetype.lib(cff.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(cff.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
+freetype.lib(type1cid.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(type1cid.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
+freetype.lib(ftgzip.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(ftgzip.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
+freetype.lib(ftlzw.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(ftlzw.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
+freetype.lib(pcf.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(pcf.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
+freetype.lib(pfr.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(pfr.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
+freetype.lib(psaux.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(psaux.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
+freetype.lib(pshinter.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(pshinter.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
+freetype.lib(psmodule.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(psmodule.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
+freetype.lib(raster.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(raster.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
+freetype.lib(sfnt.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(sfnt.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
+freetype.lib(smooth.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(smooth.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
+freetype.lib(truetype.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(truetype.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
+freetype.lib(type1.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(type1.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
+freetype.lib(type42.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(type42.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
+freetype.lib(winfnt.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(winfnt.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
+freetype.lib(ftdebug.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(ftdebug.obj)' or at 'C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\freetype.pdb'; linking object as if no debug info
   MistralEngine.vcxproj -> C:\Users\molin\Universidad\VGI\MistralEngine\bin\Win32\Release\MistralEngine.exe

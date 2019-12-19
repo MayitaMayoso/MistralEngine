@@ -158,7 +158,6 @@ void Scenario::ReadScenario(string path)
 					{
 						Planet3* p = new Planet3(game);
 						p->set_position(x, y, z);
-						cout << "xd";
 					}
 
 					if (object == "LevelPlanet")

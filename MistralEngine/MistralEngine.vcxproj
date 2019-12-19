@@ -153,14 +153,14 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependancies\GLUT\include;$(MSBuildProjectDirectory)\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLUT\include;$(SolutionDir)Dependencies\glm-0.9.9.6\glm\glm;$(SolutionDir)Dependencies\assimp\include;$(MSBuildProjectDirectory)\include;$(SolutionDir)Dependencies\OpenAL-1.1-SDK\include;$(SolutionDir)Dependencies\Freetype\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependancies\GLUT\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>freeglut.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\GLEW\lib\Release\Win32;$(SolutionDir)Dependencies\GLUT\lib;$(SolutionDir)Dependencies\assimp\lib;$(SolutionDir)Dependencies\OpenAL-1.1-SDK\libs\Win32;$(SolutionDir)Dependencies\Freetype\src</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OpenAL32.lib;assimp-vc142-mtd.lib;glew32s.lib;freeglut.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;opengl32.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
