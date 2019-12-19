@@ -93,6 +93,10 @@ void Character::Update() {
 		}
 
 	} else {
+		if (game->input->InputCheck("SHOOT", InputState::PRESSED)) {
+			game->scenario->ChangeScenario("Scenario.txt");
+		}
+
 		x_spd = lerp(x_spd, max_spd * -r_input, acceleration*10);
 		z_spd = lerp(z_spd, max_spd * f_input, acceleration*10);
 
@@ -348,7 +352,7 @@ void Intro::Draw() {
 	if (visible) {
 
 		if (game->input->InputCheck("UP", InputState::PRESSED)) {
-			game->scenario->ChangeScenario("scenario.txt");
+			game->scenario->ChangeScenario("Scenario.txt");
 		}
 
 		glEnable(GL_CULL_FACE);

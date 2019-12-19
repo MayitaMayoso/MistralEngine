@@ -208,7 +208,7 @@ private:
 	GLuint VAO;
 	GLuint VBO;
 
-	std::string history[25] = { "Mistral Engine", "Episode I","Creating the motor", "", "After much effort and sweat",
+	std::string history[25] = { "Mistral Engine", "Episode I","Creating the Engine", "", "After much effort and sweat",
 	" our engineers have developed", "   a functional graphic engine." , "Taking advantage of the death" ,
 	"of the supreme leader Snoke," , "   will use the engine to fight " ,
 	"the new order throughout" , "the galaxy." , "","You are the protagonist and", "you must fly the spaceship.", "It is time to destroy",

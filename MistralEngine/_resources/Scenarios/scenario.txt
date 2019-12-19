@@ -1,4 +1,4 @@
-Character/0/0/4
+Character/0/0/10
 Planet/0/0/0
 Planet2/-20/0/20
 Planet3/20/0/20
